@@ -1,0 +1,28 @@
+.corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(
+    -45deg,
+    rgb(109, 0, 0) 0%,
+    rgb(199, 0, 76) 51%,
+    rgb(109, 0, 0) 100%
+  );
+  background-size: 300%;
+  box-shadow: 0 0 15px rgb(0, 5, 51);
+  outline: 0;
+  border: 0;
+  transition: background-position ease-in-out 0.4s;
+}
+
+.corner:hover {
+  cursor: pointer;
+  background-position: right top;
+}
+
+.corner:active {
+  box-shadow: 0 0 2px rgb(0, 5, 51);
+}

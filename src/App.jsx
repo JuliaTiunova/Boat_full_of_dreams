@@ -1,4 +1,5 @@
 import styles from "./App.module.css";
+import Corner from "./Corner/Corner";
 
 function App() {
   function getGreeting(user) {
@@ -10,7 +11,10 @@ function App() {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>{getGreeting()}</h1>
+      <header className={styles.header}>
+        <Corner />
+        <h1 className={styles.title}>{getGreeting()}</h1>
+      </header>
     </div>
   );
 }
