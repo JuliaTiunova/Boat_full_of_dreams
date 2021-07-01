@@ -1,13 +1,16 @@
 .header {
   background: linear-gradient(
       -45deg,
-      rgb(43, 17, 109, 50%) 0%,
-      rgb(41, 124, 138, 50%) 100%
+      rgb(139, 232, 255, 61%) 0%,
+      rgb(0, 98, 199, 62%) 50%,
+      rgb(177, 97, 168, 67%) 100%
     ),
-    url(img/BG_boat.jpeg) center center no-repeat;
+    url(img/BG_swirl.png) center center no-repeat;
+  /* url(img/BG_boat.jpeg) center center no-repeat; */
   background-size: cover;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 120px 0 0 0;
@@ -21,4 +24,23 @@
   text-align: center;
   color: #fff;
   text-shadow: 0px 0px 7px rgb(212, 212, 212);
+}
+
+.subtitle {
+  background: none;
+  color: #fff;
+  text-shadow: 0px 0px 10px rgb(212, 212, 212);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 400;
+  padding: 10px 20px;
+  font-size: 32px;
+  border: 0;
+  outline: 0;
+}
+
+.subtitle:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 50px rgb(255, 255, 255);
+  transition: text-shadow ease-in 0.5s;
 }

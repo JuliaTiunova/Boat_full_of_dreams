@@ -7,9 +7,9 @@
   border-radius: 50%;
   background: linear-gradient(
     -45deg,
-    rgb(109, 0, 0) 0%,
-    rgb(199, 0, 76) 51%,
-    rgb(109, 0, 0) 100%
+    rgb(0, 98, 199, 90%) 0%,
+    rgb(173, 55, 159, 90%) 51%,
+    rgb(0, 98, 199, 90%) 100%
   );
   background-size: 300%;
   box-shadow: 0 0 15px rgb(0, 5, 51);
