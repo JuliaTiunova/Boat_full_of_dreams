@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import styles from "./App.module.css";
+import About from "./components/About/About";
 // import Corner from "./components/Corner/Corner";
 // import Form from "./components/Form/Form";
 import Menu from "./components/Menu/Menu";
@@ -50,9 +51,9 @@ function App(props) {
         <Subtitle />
       </header>
       <section>
-        {/* <Form onAdd={handleAdd} /> */}
-        {/* <Story protagonist={prota} /> */}
+        <About />
       </section>
+      {/* <Form onAdd={handleAdd} /> */}
     </div>
   );
 }

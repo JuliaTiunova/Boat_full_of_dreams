@@ -2,7 +2,39 @@
 }
 
 .list {
+  list-style-type: none;
+  display: flex;
 }
 
 .item {
+}
+.button {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 18px;
+  background: 0;
+  outline: 0;
+  border: 0;
+  color: #fff;
+  border-top: 2px solid #ffffff00;
+  border-bottom: 2px solid #ffffff00;
+  padding: 5px 15px;
+  transition: border-top 0.2s, border-bottom 0.2s, background-image 5s, color 1s;
+}
+.button:hover {
+  cursor: pointer;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  border-radius: 5px 5px 5px 5px;
+  background-image: linear-gradient(
+    to left,
+    #ffffff00 0%,
+    rgb(205, 231, 255) 35%,
+    rgb(225, 255, 255) 65%,
+    #ffffff00 100%
+  );
+  color: rgb(9, 0, 63);
+}
+
+.item:not(:last-child) {
+  margin-right: 60px;
 }

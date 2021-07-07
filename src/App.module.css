@@ -22,9 +22,10 @@
 }
 
 .title {
+  font-family: "Jost", sans-serif;
   text-transform: uppercase;
+  font-weight: 600;
   letter-spacing: 2px;
-  font-weight: 500;
   font-size: 46px;
   text-align: center;
   color: #fff;
