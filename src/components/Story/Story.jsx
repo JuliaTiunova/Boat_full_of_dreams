@@ -1,4 +1,4 @@
-import { beginning } from "../../arrays/arrays";
+import { beginning, creatures } from "../../arrays/arrays";
 import { beginningPlus } from "../../arrays/arrays";
 
 const findRandomIndex = (length) => {
@@ -10,20 +10,43 @@ const findRandomIndex = (length) => {
   return index;
 };
 
-const Story = () => {
-  <beginning />;
-  const lengthBeginning = beginning.length;
-  <beginningPlus />;
-  const lengthBeginningPlus = beginningPlus.length;
-  const beginningIndex = findRandomIndex(lengthBeginning);
+const Story = (props) => {
+  const beginningIndex = findRandomIndex(beginning.length);
+  const creturesIndex = findRandomIndex(creatures.length);
+
+  const protagonist = props.protagonist;
+  const place = props.place;
+  const name = props.name;
+
   let beginningPlusStory = "";
+
   if (beginningIndex <= 3) {
-    beginningPlusStory = beginningPlus[findRandomIndex(lengthBeginningPlus)];
+    beginningPlusStory = beginningPlus[findRandomIndex(beginningPlus.length)];
   } else {
     beginningPlusStory = "";
   }
-  const story = `${beginning[beginningIndex]}, ${beginningPlusStory}`;
-  console.log(story);
+  let beginningEndChain = "";
+  // if protaF or protaM
+  if (protagonist === "лицар" || protagonist === "чарівник") {
+    beginningEndChain = `жив-був ${protagonist} на ім'я ${name}`;
+  } else if (protagonist === "принцеса" || protagonist === "чарівниця") {
+    beginningEndChain = `жила-була ${protagonist}.`;
+  } else {
+    let protagonists = "";
+    if (protagonist === "русалка") {
+      protagonists = "русалки";
+    } else if (protagonist === "дракон") {
+      protagonists = "дракони";
+    } else if (protagonist === "ельф") {
+      protagonists = "ельфи";
+    } else if (protagonist === "єдиноріг") {
+      protagonists = "єдинороги";
+    }
+    beginningEndChain = `існували ${protagonists}.`;
+  }
+
+  const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain}`;
+  console.log(protagonist, place, name);
   return <p>{story}</p>;
 };
 

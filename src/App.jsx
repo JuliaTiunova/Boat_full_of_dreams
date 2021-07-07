@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { render } from "@testing-library/react";
 import styles from "./App.module.css";
 import Corner from "./components/Corner/Corner";
-import Day from "./components/Day/Day";
-// import Form from "./Form/Form";
+import Form from "./components/Form/Form";
+
 import Story from "./components/Story/Story";
 import Subtitle from "./components/Subtitle/Subtitle";
 
@@ -14,23 +14,18 @@ function App() {
   //   return `Welcome, dreamer!`;
   // }
 
-  const user = {
-    name: "",
-  };
-  const [name, setName] = useState(``);
-
-  const handleClick = () => {
-    setName();
+  const Greetings = () => {
+    return <h1 className={styles.title}>Вітаю, сновидцю!</h1>;
   };
 
-  const Greetings = (props) => {
-    if (user) {
-      return (
-        <h1 className={styles.title}>З поверненням, сновидцю {props.name}!</h1>
-      );
-    } else {
-      return <h1 className={styles.title}>Вітаю, сновидцю!</h1>;
-    }
+  let prota = "";
+  let protaName = "";
+  let protaPlace = "";
+  const handleAdd = (protagonist, place, name) => {
+    prota = protagonist;
+    protaName = name;
+    protaPlace = place;
+    render(<Story protagonist={prota} place={protaPlace} name={protaName} />);
   };
 
   return (
@@ -38,14 +33,13 @@ function App() {
       <header className={styles.header}>
         <Corner />
         {/* <h1 className={styles.title}>Welcome, dreamer!</h1> */}
-        <Greetings name={name} />
+        <Greetings />
         <Subtitle />
-        <Day />
-        <Story />
       </header>
-      {/* <section>
-        <Form />
-      </section> */}
+      <section>
+        <Form onAdd={handleAdd} />
+        {/* <Story protagonist={prota} /> */}
+      </section>
     </div>
   );
 }
