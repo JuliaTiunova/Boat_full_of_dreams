@@ -7,6 +7,7 @@ import Menu from "./components/Menu/Menu";
 
 import Story from "./components/Story/Story";
 import Subtitle from "./components/Subtitle/Subtitle";
+import Instruction from "./components/Instruction/Instruction";
 
 function App(props) {
   // function getGreeting(user) {
@@ -52,6 +53,9 @@ function App(props) {
       </header>
       <section>
         <About />
+      </section>
+      <section>
+        <Instruction />
       </section>
       {/* <Form onAdd={handleAdd} /> */}
     </div>
