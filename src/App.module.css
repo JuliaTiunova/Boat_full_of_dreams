@@ -1,9 +1,9 @@
 .header {
   background: linear-gradient(
       -45deg,
-      rgb(139, 232, 255, 61%) 0%,
-      rgb(0, 98, 199, 62%) 50%,
-      rgb(177, 97, 168, 67%) 100%
+      rgb(0, 20, 45, 0%) 0%,
+      rgb(1, 13, 27, 53%) 50%,
+      rgb(2, 4, 27, 76%) 100%
     ),
     /* url(./BG_swirl.png) center center no-repeat; */ url(./BG_boat.jpeg)
       center center no-repeat;
@@ -13,7 +13,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 120px 0 0 0;
+  /* border-radius: 120px 0 0 0; */
+}
+
+.menu {
+  position: absolute;
+  top: 30px;
 }
 
 .title {

@@ -1,12 +1,19 @@
 import { useState } from "react";
+import {
+  helpers,
+  placesAll,
+  powers,
+  protagonistsAll,
+} from "../../arrays/arrays";
 import Option from "../Option/Option";
-import OptionPlace from "../OptionPlace/OptionPlace";
 import styles from "./Form.module.css";
 
 const Form = (props) => {
   const [protagonist, setProtagonist] = useState("");
   const [place, setPlace] = useState("");
   const [name, setName] = useState("");
+  const [helper, setHelper] = useState("");
+  const [power, setPower] = useState("");
 
   const handleChange = (event) => {
     setProtagonist(event.target.value);
@@ -19,10 +26,17 @@ const Form = (props) => {
   const handleSaveName = (event) => {
     setName(event.target.value);
   };
+  const handleSaveHelpers = (event) => {
+    setHelper(event.target.value);
+  };
+
+  const handleSavePower = (event) => {
+    setPower(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onAdd(protagonist, place, name);
+    props.onAdd(protagonist, place, name, helper, power);
     console.log(protagonist + " " + place + " " + name);
   };
 
@@ -30,6 +44,8 @@ const Form = (props) => {
     setProtagonist("");
     setPlace("");
     setName("");
+    setHelper("");
+    setPower("");
   };
 
   return (
@@ -47,7 +63,7 @@ const Form = (props) => {
           id="protagonist"
         >
           <option value="" hidden></option>
-          <Option />
+          <Option array={protagonistsAll} />
         </select>
         <label htmlFor="place">Обери світ</label>
         <select
@@ -57,7 +73,7 @@ const Form = (props) => {
           id="place"
         >
           <option value="" hidden></option>
-          <OptionPlace />
+          <Option array={placesAll} />
         </select>
         <label htmlFor="name">Дай герою гідне ім'я</label>
         <input
@@ -67,8 +83,28 @@ const Form = (props) => {
           id="name"
           onChange={handleSaveName}
         />
-        <button type="submit">submit</button>
-        <button type="reset">reset</button>
+        <label htmlFor="helpers">Допоможи герою</label>
+        <select
+          value={helper}
+          onChange={handleSaveHelpers}
+          name="helpers"
+          id="helpers"
+        >
+          <option value="" hidden></option>
+          <Option array={helpers} />
+        </select>
+        <label htmlFor="power">Надай йому/їй сили</label>
+        <select
+          value={power}
+          onChange={handleSavePower}
+          name="power"
+          id="power"
+        >
+          <option value="" hidden></option>
+          <Option array={powers} />
+        </select>
+        <button type="submit">Лягти спати</button>
+        <button type="reset">Очистити форму</button>
       </form>
     </div>
   );

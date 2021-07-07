@@ -1,4 +1,9 @@
-import { beginning, creatures } from "../../arrays/arrays";
+import {
+  beginning,
+  creatures,
+  expoHero,
+  expoHeroess,
+} from "../../arrays/arrays";
 import { beginningPlus } from "../../arrays/arrays";
 
 const findRandomIndex = (length) => {
@@ -13,6 +18,8 @@ const findRandomIndex = (length) => {
 const Story = (props) => {
   const beginningIndex = findRandomIndex(beginning.length);
   const creturesIndex = findRandomIndex(creatures.length);
+  const expoHeroIndex = findRandomIndex(expoHero.length);
+  const expoHeroessIndex = findRandomIndex(expoHeroess.length);
 
   const protagonist = props.protagonist;
   const place = props.place;
@@ -28,9 +35,9 @@ const Story = (props) => {
   let beginningEndChain = "";
   // if protaF or protaM
   if (protagonist === "лицар" || protagonist === "чарівник") {
-    beginningEndChain = `жив-був ${protagonist} на ім'я ${name}`;
+    beginningEndChain = `${expoHero[expoHeroIndex]} ${protagonist} на ім'я ${name}.`;
   } else if (protagonist === "принцеса" || protagonist === "чарівниця") {
-    beginningEndChain = `жила-була ${protagonist}.`;
+    beginningEndChain = `${expoHeroess[expoHeroessIndex]} ${protagonist} на ім'я ${name}.`;
   } else {
     let protagonists = "";
     if (protagonist === "русалка") {
@@ -41,6 +48,8 @@ const Story = (props) => {
       protagonists = "ельфи";
     } else if (protagonist === "єдиноріг") {
       protagonists = "єдинороги";
+    } else if (protagonist === "") {
+      protagonists = creatures[creturesIndex];
     }
     beginningEndChain = `існували ${protagonists}.`;
   }

@@ -23,12 +23,22 @@ export const protagonistsAll = [
 
 export const placesAll = ["чарівний ліс", "море", "гори", "місто"];
 
-export const creatures = [
-  "чарівники",
-  "дракони",
-  "ельфи",
-  "русалки",
-  "єдинороги",
+export const creatures = ["дракони", "ельфи", "русалки", "єдинороги"];
+
+export const helpers = [
+  "меч і щит",
+  "сокира",
+  "лук і стріли",
+  "кінь",
+  "троянда",
+];
+
+export const powers = [
+  "вміння літати",
+  "невидимість",
+  "швидкість",
+  "суперстла",
+  "почуття гумору",
 ];
 
 export const beginning = [
@@ -49,9 +59,10 @@ export const beginningPlus = [
   "коли Земля крутилася так швидко, що рік минав удвічі швидше, ніж тепер,",
 ];
 
-export const expoHero = ["жив-був", `жив такий собі`, ``];
+export const expoHero = [`жив-був`, `жив такий собі`, `жив один`];
+export const expoHeroess = [`жила-була`, `жила`, `жила одна`];
 
-export const places = [
+export const continue1 = [
   "у густих-густих лісах", // if forest
   "в печерах високих гір",
   "високо в горах",
@@ -62,7 +73,7 @@ export const places = [
   "у великому місті",
 ];
 
-export const placesPlusForest = [
+export const continue1Forest = [
   `високо на деревах, в домівках, сплетених з гілок і листя`,
   `де земля встелена оксамитовим мохом і всіяна маленькими квітами, мов зірочками. В бутонах цих квітів і жили ${creatures}`, // if forest, "високо в горах"
   `що приховані від усіх густим туманом`,
@@ -70,7 +81,7 @@ export const placesPlusForest = [
   `що приховані від цікавих очей звичайних`,
 ];
 
-export const placesPlusMountain = [
+export const continue1Mountain = [
   // if places["високо в горах"]
   `на широких полонинах, де росли дикі маки і видно було, як сонце сідає за обрій`,
   "вигнані жорстокими людьми зі своїх рідних лісів, приречені існувати серед скель і палючого сонця",

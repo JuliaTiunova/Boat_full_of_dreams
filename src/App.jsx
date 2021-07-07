@@ -1,12 +1,13 @@
 import { render } from "@testing-library/react";
 import styles from "./App.module.css";
-import Corner from "./components/Corner/Corner";
-import Form from "./components/Form/Form";
+// import Corner from "./components/Corner/Corner";
+// import Form from "./components/Form/Form";
+import Menu from "./components/Menu/Menu";
 
 import Story from "./components/Story/Story";
 import Subtitle from "./components/Subtitle/Subtitle";
 
-function App() {
+function App(props) {
   // function getGreeting(user) {
   //   if (user) {
   //     return `Hello, {user}`;
@@ -21,23 +22,35 @@ function App() {
   let prota = "";
   let protaName = "";
   let protaPlace = "";
-  const handleAdd = (protagonist, place, name) => {
+  let protaHelper = "";
+  let protaPower = "";
+  const handleAdd = (protagonist, place, name, helper, power) => {
     prota = protagonist;
     protaName = name;
     protaPlace = place;
-    render(<Story protagonist={prota} place={protaPlace} name={protaName} />);
+    protaHelper = helper;
+    protaPower = power;
+    render(
+      <Story
+        protagonist={prota}
+        place={protaPlace}
+        name={protaName}
+        helper={protaHelper}
+        power={protaPower}
+      />
+    );
   };
 
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <Corner />
-        {/* <h1 className={styles.title}>Welcome, dreamer!</h1> */}
+        {/* <Corner /> */}
+        <Menu className={styles.menu} />
         <Greetings />
         <Subtitle />
       </header>
       <section>
-        <Form onAdd={handleAdd} />
+        {/* <Form onAdd={handleAdd} /> */}
         {/* <Story protagonist={prota} /> */}
       </section>
     </div>
