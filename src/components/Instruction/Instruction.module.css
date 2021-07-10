@@ -1,7 +1,85 @@
-.wrapper {
+.instruction {
   padding: 45px 150px 80px;
+  background: linear-gradient(to bottom, #fff 0%, #ffffff75 50%, #ffffff80 100%),
+    url(./BG_lights.jpeg) center center no-repeat;
+  background-size: cover;
+  margin: 0 auto;
 }
 
 .title {
   margin-bottom: 115px;
+}
+
+.title3 {
+  font-size: 18px;
+  color: #323232;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 50px;
+}
+.wizardWrapper,
+.knightWrapper,
+.smokeWrapper,
+.bookWrapper {
+  position: relative;
+}
+
+.wizard::after {
+  content: "";
+  background: url(./wizard.svg) center center no-repeat;
+  background-size: contain;
+  background-blend-mode: lighten;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: 20px;
+  right: 20px;
+}
+
+.knight::after {
+  content: "";
+  background: url(./smoke.svg) center center no-repeat;
+  background-size: contain;
+  background-blend-mode: lighten;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: 20px;
+  right: 20px;
+}
+
+.smoke::after {
+  content: "";
+  background: url(./knight.svg) center center no-repeat;
+  background-size: contain;
+  background-blend-mode: lighten;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: 20px;
+  right: 20px;
+}
+
+.book::after {
+  content: "";
+  background: url(./magic-book.svg) center center no-repeat;
+  background-size: contain;
+  background-blend-mode: lighten;
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.cardBig {
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+  background: url(./castle.png) bottom center no-repeat;
+  background-size: contain;
+  background-blend-mode: lighten;
 }

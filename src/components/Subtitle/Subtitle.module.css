@@ -9,6 +9,8 @@
   font-size: 32px;
   border: 0;
   outline: 0;
+
+  animation: 2s pulse infinite;
 }
 
 .subtitle:hover {

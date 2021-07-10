@@ -7,32 +7,45 @@
 }
 
 .item {
+  border-top: 2px solid #ffffff00;
+  border-bottom: 2px solid #ffffff00;
+  border-left: 2px solid #ffffff00;
+  transition: all 0.2s;
+  position: relative;
 }
 .button {
   font-family: "Comfortaa", sans-serif;
   font-size: 18px;
+  line-height: 28px;
   background: 0;
   outline: 0;
   border: 0;
   color: #fff;
-  border-top: 2px solid #ffffff00;
-  border-bottom: 2px solid #ffffff00;
-  padding: 5px 15px;
-  transition: border-top 0.2s, border-bottom 0.2s, background-image 5s, color 1s;
+  padding: 5px 10px 5px 15px;
 }
+
+.item:hover {
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-radius: 10px 0 0 10px;
+  cursor: pointer;
+}
+
 .button:hover {
   cursor: pointer;
+}
+
+.item:hover.item:after {
+  content: "";
   border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  border-radius: 5px 5px 5px 5px;
-  background-image: linear-gradient(
-    to left,
-    #ffffff00 0%,
-    rgb(205, 231, 255) 35%,
-    rgb(225, 255, 255) 65%,
-    #ffffff00 100%
-  );
-  color: rgb(9, 0, 63);
+  border-left: 2px solid #fff;
+  border-radius: 10px 0 0 0;
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  transition: all 0.3s;
 }
 
 .item:not(:last-child) {

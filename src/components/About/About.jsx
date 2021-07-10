@@ -5,7 +5,7 @@ import Title2 from "../Title2/Title2";
 const About = () => {
   return (
     <div className={styles.about}>
-      <Title2 className={styles.title} text="Це - Генератор Казок" />
+      <Title2 className={styles.title} text="Генератор Казок" />
       <div className={styles.wrapper}>
         <div className={cn(styles.decorationTop, styles.decoration)}></div>
         <p className={styles.text}>

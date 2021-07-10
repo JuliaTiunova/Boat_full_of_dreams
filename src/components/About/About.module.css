@@ -1,5 +1,5 @@
 .about {
-  padding: 80px 200px;
+  padding: 80px 200px 120px;
   /* background: linear-gradient(-45deg, #ffffff7d 0%, #e6e6e680 50%, #ffffff 100%),
     url(./BG_lights.jpeg) center center no-repeat; */
   background-size: cover;
@@ -31,13 +31,11 @@
 .imgTop {
   background: url("./books_1.jpeg") center center no-repeat;
   background-size: cover;
-  box-shadow: 50px -40px 0px #fd161f;
 }
 
 .imgBottom {
   background: url("./books.jpeg") center center no-repeat;
   background-size: cover;
-  box-shadow: 50px -40px 0px #eba14d;
 }
 
 .decoration {
@@ -53,7 +51,7 @@
   border-top: 3px solid #323232;
   border-radius: 40px 0 0 40px;
   left: -50px;
-  top: -20px;
+  top: 0;
 }
 
 .decorationTop:after {
@@ -72,7 +70,7 @@
   border-top: 3px solid #323232;
   border-radius: 0 40px 40px 0;
   right: -50px;
-  top: -20px;
+  top: 0;
 }
 
 .decorationBottom:after {

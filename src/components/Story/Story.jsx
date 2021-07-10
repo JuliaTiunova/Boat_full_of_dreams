@@ -36,7 +36,11 @@ const Story = (props) => {
   // if protaF or protaM
   if (protagonist === "лицар" || protagonist === "чарівник") {
     beginningEndChain = `${expoHero[expoHeroIndex]} ${protagonist} на ім'я ${name}.`;
-  } else if (protagonist === "принцеса" || protagonist === "чарівниця") {
+  } else if (
+    protagonist === "принцеса" ||
+    protagonist === "чарівниця" ||
+    protagonist === "дівчина"
+  ) {
     beginningEndChain = `${expoHeroess[expoHeroessIndex]} ${protagonist} на ім'я ${name}.`;
   } else {
     let protagonists = "";
@@ -55,7 +59,7 @@ const Story = (props) => {
   }
 
   const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain}`;
-  console.log(protagonist, place, name);
+  console.log(story);
   return <p>{story}</p>;
 };
 
