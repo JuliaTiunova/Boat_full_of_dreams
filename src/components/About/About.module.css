@@ -1,12 +1,15 @@
 .about {
-  padding: 80px 200px 120px;
+  padding: 100px 200px 160px;
   /* background: linear-gradient(-45deg, #ffffff7d 0%, #e6e6e680 50%, #ffffff 100%),
     url(./BG_lights.jpeg) center center no-repeat; */
   background-size: cover;
+  overflow: hidden;
 }
 
 .title {
-  margin-bottom: 124px;
+  margin-bottom: 84px;
+
+  color: #323232;
 }
 
 .text {
@@ -27,15 +30,42 @@
 .img {
   height: 200px;
   width: 100%;
+  box-shadow: 20px -30px 0 rgb(35, 47, 65);
 }
 .imgTop {
-  background: url("./books_1.jpeg") center center no-repeat;
+  background: url(./books_1.jpeg) center center no-repeat;
   background-size: cover;
+  position: relative;
+}
+
+.imgTop::after {
+  content: "";
+  background: url(./books_2.jpeg) center center no-repeat;
+  height: inherit;
+  width: inherit;
+  background-size: cover;
+  position: absolute;
+  right: -45px;
+  top: 0;
+  transform: translate(100%);
 }
 
 .imgBottom {
-  background: url("./books.jpeg") center center no-repeat;
+  background: url(./books.jpeg) center center no-repeat;
   background-size: cover;
+  position: relative;
+}
+
+.imgBottom::after {
+  content: "";
+  background: url(./books_2.jpeg) center center no-repeat;
+  height: inherit;
+  width: inherit;
+  background-size: cover;
+  position: absolute;
+  left: -45px;
+  top: 0;
+  transform: translate(-100%);
 }
 
 .decoration {
@@ -50,13 +80,15 @@
   border-bottom: 3px solid #323232;
   border-top: 3px solid #323232;
   border-radius: 40px 0 0 40px;
+  width: 150%;
+  height: 120%;
   left: -50px;
-  top: 0;
+  top: -30px;
 }
 
 .decorationTop:after {
   content: "";
-  width: 21%;
+  width: 60%;
   height: 100px;
   background-color: #fff;
   position: absolute;
@@ -69,13 +101,14 @@
   border-bottom: 3px solid #323232;
   border-top: 3px solid #323232;
   border-radius: 0 40px 40px 0;
+  width: 150%;
   right: -50px;
   top: 0;
 }
 
 .decorationBottom:after {
   content: "";
-  width: 21%;
+  width: 60%;
   height: 100px;
   background-color: #fff;
   position: absolute;

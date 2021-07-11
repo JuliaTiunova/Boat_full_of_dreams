@@ -31,3 +31,15 @@
   color: #fff;
   text-shadow: 0px 0px 7px rgb(212, 212, 212);
 }
+
+.footer {
+  background-image: linear-gradient(to bottom, #130f0f 0%, #0d1726 100%);
+  color: #fff;
+  padding: 100px 200px;
+}
+
+.titleSmall {
+  color: #fff;
+  text-shadow: 1px 1px 3px #ffffffb1;
+  margin-bottom: 65px;
+}

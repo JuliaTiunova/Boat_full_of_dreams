@@ -19,10 +19,7 @@ const Menu = (props) => {
           <button className={styles.button}>Інструкції</button>
         </li>
         <li className={styles.item}>
-          <button className={styles.button}>Інші проекти</button>
-        </li>
-        <li className={styles.item}>
-          <button className={styles.button}>Контакти</button>
+          <button className={styles.button}>Написати нам</button>
         </li>
       </ul>
     </nav>

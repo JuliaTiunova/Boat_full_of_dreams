@@ -10,7 +10,7 @@
   border-top: 2px solid #ffffff00;
   border-bottom: 2px solid #ffffff00;
   border-left: 2px solid #ffffff00;
-  transition: all 0.2s;
+  transition: all 0.1s;
   position: relative;
 }
 .button {
@@ -27,7 +27,7 @@
 .item:hover {
   border-bottom: 2px solid #fff;
   border-left: 2px solid #fff;
-  border-radius: 10px 0 0 10px;
+  border-radius: 15px 0 0 15px;
   cursor: pointer;
 }
 
@@ -39,13 +39,12 @@
   content: "";
   border-top: 2px solid #fff;
   border-left: 2px solid #fff;
-  border-radius: 10px 0 0 0;
+  border-radius: 15px 0 0 0;
   width: 100px;
   height: 20px;
   position: absolute;
   top: -2px;
   left: -2px;
-  transition: all 0.3s;
 }
 
 .item:not(:last-child) {

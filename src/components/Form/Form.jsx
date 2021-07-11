@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   helpers,
+  moodOf,
   placesAll,
   powers,
   protagonistsAll,
@@ -14,6 +15,7 @@ const Form = (props) => {
   const [name, setName] = useState("");
   const [helper, setHelper] = useState("");
   const [power, setPower] = useState("");
+  const [mood, setMood] = useState("");
 
   const handleChange = (event) => {
     setProtagonist(event.target.value);
@@ -34,10 +36,26 @@ const Form = (props) => {
     setPower(event.target.value);
   };
 
+  const handleSaveMood = (event) => {
+    setMood(event.target.value);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onAdd(protagonist, place, name, helper, power);
-    console.log(protagonist + " " + place + " " + name);
+    props.onAdd(protagonist, place, name, helper, power, mood);
+    console.log(
+      protagonist +
+        " " +
+        place +
+        " " +
+        name +
+        " " +
+        helper +
+        " " +
+        power +
+        " " +
+        mood
+    );
   };
 
   const handleReset = (event) => {
@@ -46,6 +64,7 @@ const Form = (props) => {
     setName("");
     setHelper("");
     setPower("");
+    setMood("");
   };
 
   return (
@@ -102,6 +121,11 @@ const Form = (props) => {
         >
           <option value="" hidden></option>
           <Option array={powers} />
+        </select>
+        <label htmlFor="mood">Обери настрій</label>
+        <select value={mood} onChange={handleSaveMood} name="mood" id="mood">
+          <option value="" hidden></option>
+          <Option array={moodOf} />
         </select>
         <button type="submit">Лягти спати</button>
         <button type="reset">Очистити форму</button>

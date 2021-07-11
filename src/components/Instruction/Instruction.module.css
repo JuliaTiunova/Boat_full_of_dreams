@@ -1,18 +1,21 @@
 .instruction {
-  padding: 45px 150px 80px;
-  background: linear-gradient(to bottom, #fff 0%, #ffffff75 50%, #ffffff80 100%),
-    url(./BG_lights.jpeg) center center no-repeat;
+  padding: 100px 150px 80px;
+  background: linear-gradient(
+      to bottom,
+      rgba(66, 66, 66, 0.219) 0%,
+      #24252749 30%,
+      #27292c59 100%
+    ),
+    url(./BG_boat_1.jpeg) center center no-repeat;
   background-size: cover;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .title {
-  margin-bottom: 115px;
-}
-
-.title3 {
-  font-size: 18px;
-  color: #323232;
+  margin-bottom: 45px;
+  color: #fff;
+  text-shadow: 1px 1px 2px #fff;
 }
 
 .wrapper {
@@ -64,7 +67,7 @@
   right: 20px;
 }
 
-.book::after {
+/* .book::after {
   content: "";
   background: url(./magic-book.svg) center center no-repeat;
   background-size: contain;
@@ -75,11 +78,8 @@
   bottom: 10px;
   left: 50%;
   transform: translate(-50%);
-}
+} */
 .cardBig {
   grid-column: 1 / 2;
   grid-row: 2 / 4;
-  background: url(./castle.png) bottom center no-repeat;
-  background-size: contain;
-  background-blend-mode: lighten;
 }
