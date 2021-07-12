@@ -6,6 +6,7 @@ import {
   powers,
   protagonistsAll,
 } from "../../arrays/arrays";
+import Button from "../Button/Button";
 import Option from "../Option/Option";
 import styles from "./Form.module.css";
 
@@ -76,6 +77,7 @@ const Form = (props) => {
       >
         <label htmlFor="protagonist">Обери свого героя</label>
         <select
+          className={styles.input}
           value={protagonist}
           onChange={handleChange}
           name="protagonist"
@@ -86,6 +88,7 @@ const Form = (props) => {
         </select>
         <label htmlFor="place">Обери світ</label>
         <select
+          className={styles.input}
           value={place}
           onChange={handleSavePlace}
           name="place"
@@ -96,24 +99,29 @@ const Form = (props) => {
         </select>
         <label htmlFor="name">Дай герою гідне ім'я</label>
         <input
+          className={styles.input}
           value={name}
           type="text"
           name="name"
           id="name"
           onChange={handleSaveName}
+          required
         />
         <label htmlFor="helpers">Допоможи герою</label>
         <select
+          className={styles.input}
           value={helper}
           onChange={handleSaveHelpers}
           name="helpers"
           id="helpers"
+          required
         >
           <option value="" hidden></option>
           <Option array={helpers} />
         </select>
         <label htmlFor="power">Надай йому/їй сили</label>
         <select
+          className={styles.input}
           value={power}
           onChange={handleSavePower}
           name="power"
@@ -123,12 +131,25 @@ const Form = (props) => {
           <Option array={powers} />
         </select>
         <label htmlFor="mood">Обери настрій</label>
-        <select value={mood} onChange={handleSaveMood} name="mood" id="mood">
+        <select
+          className={styles.input}
+          value={mood}
+          onChange={handleSaveMood}
+          name="mood"
+          id="mood"
+          required
+        >
           <option value="" hidden></option>
           <Option array={moodOf} />
         </select>
-        <button type="submit">Лягти спати</button>
-        <button type="reset">Очистити форму</button>
+        <div className={styles.buttonWrapper}>
+          <Button className={styles.button} type="submit" text="Лягти спати" />
+          <Button
+            className={styles.button}
+            type="reset"
+            text="Очистити форму"
+          />
+        </div>
       </form>
     </div>
   );

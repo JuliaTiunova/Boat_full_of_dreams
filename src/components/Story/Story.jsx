@@ -5,6 +5,7 @@ import {
   expoHeroess,
   mountainPlaceDragon,
   placesForest,
+  placesPlusMountain,
   waterPlace,
 } from "../../arrays/arrays";
 import { beginningPlus } from "../../arrays/arrays";
@@ -25,6 +26,7 @@ const Story = (props) => {
   const waterPlaceIndex = findRandomIndex(waterPlace.length);
   const mountainPlaceDragonIndex = findRandomIndex(mountainPlaceDragon.length);
   const placesForestIndex = findRandomIndex(placesForest.length);
+  const placesPlusMountainIndex = findRandomIndex(placesPlusMountain.length);
 
   const protagonist = props.protagonist;
   const place = props.place;
@@ -52,11 +54,7 @@ const Story = (props) => {
     beginningEndChain = `${
       expoHero[findRandomIndex(expoHero.length)]
     } ${protagonist} на ім'я ${name}.`;
-  } else if (
-    protagonist === "принцеса" ||
-    protagonist === "чарівниця" ||
-    protagonist === "дівчина"
-  ) {
+  } else if (protagonist === "принцеса" || protagonist === "чарівниця") {
     beginningEndChain = `${
       expoHeroess[findRandomIndex(expoHeroess.length)]
     } ${protagonist} на ім'я ${name}.`;
@@ -76,15 +74,97 @@ const Story = (props) => {
   }
 
   // for part2
+  if (!protagonists) {
+    if (protagonist === "лицар" || protagonist === "чарівник") {
+      if (mood === "повчальна") {
+        part2 = `Він був дуже добрим, але ще дитиною його віддали на службу до злого короля.
+         Почув одного дня король, що десь `;
+
+        if (place === "чарівний ліс") {
+          part2 += `у чарівному лісі `;
+        } else if (place === "море/океан...") {
+          part2 += `на безлюдному острові в океані `;
+        } else if (place === "гори") {
+          part2 += `в далеких горах, на самій вершині, що впирається в небо `;
+        } else if (place === "місто") {
+          part2 += `в далекому невідомому місті `;
+        }
+
+        part2 += `тече чарівне джерело, вода якого дарує вічну молодість. І задумав злий король жити вічно. Тож відправився ${protagonist} у далеку подорож і взяв він з собою тільки `;
+
+        if (helper === "меч і щит") {
+          part2 += `свої вірні меч і щит.`;
+        } else if (helper === "чарівна палочка") {
+          part2 += `свою вірну чарівну палочку`;
+          if (protagonist === "лицар") {
+            part2 += `, подарунок від придворного мага.`;
+          } else {
+            part2 += `.`;
+          }
+        } else if (helper === "лук і стріли") {
+          part2 += `свої вірні лук і стріли.`;
+        } else if (helper === "кінь") {
+          part2 += `свого вірного коня.`;
+        } else if (helper === "троянда") {
+          part2 += `чарівну троянду.`;
+        }
+      }
+    }
+
+    if (protagonist === "принцеса" || protagonist === "чарівниця") {
+      if (mood === "повчальна") {
+        part2 = `Вона мала яскраве руде волосся, що, нажаль, було неприпустимим для її народу.
+         Та одного разу її батьки почули про чарівне джерело, яке може виконати будь-яке бажання. Але знайти це джерело можна було тільки `;
+
+        if (place === "чарівний ліс") {
+          part2 += `в далекому чарівному лісі. `;
+        } else if (place === "море/океан...") {
+          part2 += `на безлюдному острові в далекому океані. `;
+        } else if (place === "гори") {
+          part2 += `в далеких горах, на самій вершині, що впирається в небо. `;
+        } else if (place === "місто") {
+          part2 += `в далекому невідомому місті. `;
+        }
+
+        part2 += `Тож зібралась ${protagonist} у далеку подорож і взяла з собою тільки `;
+
+        if (helper === "меч і щит") {
+          part2 += `свої вірні меч і щит.`;
+        } else if (helper === "чарівна палочка") {
+          part2 += `свою вірну чарівну палочку`;
+          if (protagonist === "принцеса") {
+            part2 += `, подарунок від придворного мага.`;
+          } else {
+            part2 += `.`;
+          }
+        } else if (helper === "лук і стріли") {
+          part2 += `свої вірні лук і стріли.`;
+        } else if (helper === "кінь") {
+          part2 += `свого вірного коня.`;
+        } else if (helper === "троянда") {
+          part2 += `чарівну троянду.`;
+        }
+      }
+    }
+  }
+
   if (protagonists) {
     part2 = "Вони жили ";
 
     if (place === "чарівний ліс" && protagonist !== "русалка") {
-      part2 += `у густих-густих лісах, ${placesForest[placesForestIndex]} `;
+      part2 += `у густих-густих лісах, ${placesForest[placesForestIndex]}. `;
     }
 
     if (place === "гори") {
-      part2 += "високо в горах ";
+      part2 += "високо в горах, ";
+    }
+
+    if (
+      place === "гори" &&
+      protagonist !== "русалка" &&
+      protagonist !== "дракон"
+    ) {
+      part2 += `${placesPlusMountain[placesPlusMountainIndex]}.`;
     }
 
     if (protagonist === "русалка" && place === "чарівний ліс") {
@@ -121,12 +201,23 @@ const Story = (props) => {
     }
   }
 
-  const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain} ${part2}`;
+  // for part3
+
+  if (!protagonists) {
+    if (protagonist === "лицар" || protagonist === "чарівник") {
+      if (mood === "повчальна") {
+        part3 = ``;
+      }
+    }
+  }
+
+  const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain} 
+  ${part2}`;
   console.log(story);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{title}</h1>
-      <pre className={styles.text}>{story}</pre>
+      <p className={styles.text}>{story}</p>
     </div>
   );
 };

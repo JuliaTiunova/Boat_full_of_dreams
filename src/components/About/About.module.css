@@ -1,7 +1,6 @@
 .about {
   padding: 100px 200px 160px;
-  /* background: linear-gradient(-45deg, #ffffff7d 0%, #e6e6e680 50%, #ffffff 100%),
-    url(./BG_lights.jpeg) center center no-repeat; */
+
   background-size: cover;
   overflow: hidden;
 }
@@ -30,7 +29,7 @@
 .img {
   height: 200px;
   width: 100%;
-  box-shadow: 20px -30px 0 rgb(35, 47, 65);
+  box-shadow: 20px -30px 0 rgb(35, 47, 65), 0 0 40px 10px rgb(54, 60, 68);
 }
 .imgTop {
   background: url(./books_1.jpeg) center center no-repeat;
@@ -48,6 +47,7 @@
   right: -45px;
   top: 0;
   transform: translate(100%);
+  box-shadow: 20px -30px 0 rgb(35, 47, 65), 0 0 40px 10px rgb(54, 60, 68);
 }
 
 .imgBottom {
@@ -66,12 +66,13 @@
   left: -45px;
   top: 0;
   transform: translate(-100%);
+  box-shadow: 20px -30px 0 rgb(35, 47, 65), 0 0 40px 10px rgb(54, 60, 68);
 }
 
 .decoration {
   position: absolute;
   width: 90%;
-  height: 100%;
+  height: 105%;
   z-index: -1;
 }
 
@@ -81,9 +82,8 @@
   border-top: 3px solid #323232;
   border-radius: 40px 0 0 40px;
   width: 150%;
-  height: 120%;
   left: -50px;
-  top: -30px;
+  top: -10px;
 }
 
 .decorationTop:after {
@@ -103,7 +103,7 @@
   border-radius: 0 40px 40px 0;
   width: 150%;
   right: -50px;
-  top: 0;
+  top: -10px;
 }
 
 .decorationBottom:after {
