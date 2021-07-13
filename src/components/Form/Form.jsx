@@ -105,7 +105,6 @@ const Form = (props) => {
           name="name"
           id="name"
           onChange={handleSaveName}
-          required
         />
         <label htmlFor="helpers">Допоможи герою</label>
         <select
@@ -137,7 +136,6 @@ const Form = (props) => {
           onChange={handleSaveMood}
           name="mood"
           id="mood"
-          required
         >
           <option value="" hidden></option>
           <Option array={moodOf} />

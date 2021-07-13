@@ -4,7 +4,7 @@ import cn from "classnames";
 const Subtitle = (props) => {
   return (
     <button className={cn(styles.subtitle, props.className)}>
-      Зайти у вирій
+      Пірнути у вирій
     </button>
   );
 };

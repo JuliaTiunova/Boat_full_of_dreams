@@ -9,6 +9,7 @@ import Subtitle from "./components/Subtitle/Subtitle";
 import Instruction from "./components/Instruction/Instruction";
 import Contacts from "./components/Contacts/Contacts";
 import Title2 from "./components/Title2/Title2";
+import LinkBack from "./components/LinkBack/LinkBack";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App(props) {
@@ -23,19 +24,13 @@ function App(props) {
     return <h1 className={styles.title}>Вітаю, сновидцю!</h1>;
   };
 
-  let prota = "";
-  let protaName = "";
-  let protaPlace = "";
-  let protaHelper = "";
-  let protaPower = "";
-  let taleMood = "";
   const handleAdd = (protagonist, place, name, helper, power, mood) => {
-    prota = protagonist;
-    protaName = name;
-    protaPlace = place;
-    protaHelper = helper;
-    protaPower = power;
-    taleMood = mood;
+    let prota = protagonist;
+    let protaName = name;
+    let protaPlace = place;
+    let protaHelper = helper;
+    let protaPower = power;
+    let taleMood = mood;
     render(
       <Story
         protagonist={prota}
@@ -58,9 +53,6 @@ function App(props) {
           <Link to="/form">
             <Subtitle className="animate__animated animate__pulse animate__slower	 animate__infinite " />
           </Link>{" "}
-          <Switch>
-            <Route path="/form"></Route>
-          </Switch>
         </header>
         <section>
           <About />
@@ -73,8 +65,15 @@ function App(props) {
           <Title2 className={styles.titleSmall} text="Напиши нам" />
           <Contacts />
         </footer>
-        <Form onAdd={handleAdd} />
       </div>
+      <Switch>
+        <Route path="/form">
+          <Form onAdd={handleAdd} />
+          <Link to="/">
+            <LinkBack className={styles.link} />
+          </Link>
+        </Route>
+      </Switch>
     </Router>
   );
 }

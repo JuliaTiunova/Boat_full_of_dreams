@@ -2,7 +2,6 @@ export const protagonistsAll = [
   "лицар",
   "дракон",
   "чарівник",
-  "єдиноріг",
   "ельф",
   "принцеса",
   "чарівниця",
@@ -11,7 +10,7 @@ export const protagonistsAll = [
 
 export const placesAll = ["чарівний ліс", "море/океан...", "гори", "місто"];
 
-export const creatures = ["дракони", "ельфи", "русалки", "єдинороги"];
+export const creatures = ["дракони", "ельфи", "русалки"];
 
 export const helpers = [
   "меч і щит",
@@ -32,6 +31,23 @@ export const powers = [
 export const moodOf = ["повчальна", "героїчна", "моторошна", "весела"];
 
 export const waterPlace = ["глибокого озера", "глибокої річки"];
+
+export const namesDragon = [
+  "Ельдур", // "Вогонь" ісландською
+  "Катла", // "Котел" ісландською
+  "Дрехкі", // "Дракон" ісландською
+];
+
+export const namesElf = [
+  "Aульвур", // "Ельф" ісландською
+  "Артур", // ельфійською
+];
+
+export const namesMermaid = [
+  "Мор-ворвін", // валійською
+  "Мара", // частково ірландською/ґельською
+  "Сирена",
+];
 
 export const mountainPlaceDragon = [
   "на кам'яних схилах, випалених їхнім гарячим подихом",

@@ -4,11 +4,15 @@ import {
   expoHero,
   expoHeroess,
   mountainPlaceDragon,
+  namesDragon,
+  namesElf,
+  namesMermaid,
   placesForest,
   placesPlusMountain,
   waterPlace,
 } from "../../arrays/arrays";
 import { beginningPlus } from "../../arrays/arrays";
+
 import styles from "./Story.module.css";
 
 const findRandomIndex = (length) => {
@@ -27,11 +31,14 @@ const Story = (props) => {
   const mountainPlaceDragonIndex = findRandomIndex(mountainPlaceDragon.length);
   const placesForestIndex = findRandomIndex(placesForest.length);
   const placesPlusMountainIndex = findRandomIndex(placesPlusMountain.length);
+  const namesDragonIndex = findRandomIndex(namesDragon.length);
+  const namesElfIndex = findRandomIndex(namesElf.length);
+  const namesMermaidIndex = findRandomIndex(namesMermaid.length);
 
   const protagonist = props.protagonist;
   const place = props.place;
-  const name = props.name;
-  const mood = props.mood;
+  let name = props.name;
+  let mood = props.mood;
   const power = props.power;
   const helper = props.helper;
 
@@ -65,8 +72,8 @@ const Story = (props) => {
       protagonists = "дракони";
     } else if (protagonist === "ельф") {
       protagonists = "ельфи";
-    } else if (protagonist === "єдиноріг") {
-      protagonists = "єдинороги";
+      // } else if (protagonist === "єдиноріг") {
+      //   protagonists = "єдинороги";
     } else if (protagonist === "") {
       protagonists = creatures[creturesIndex];
     }
@@ -90,14 +97,14 @@ const Story = (props) => {
           part2 += `в далекому невідомому місті `;
         }
 
-        part2 += `тече чарівне джерело, вода якого дарує вічну молодість. І задумав злий король жити вічно. Тож відправився ${protagonist} у далеку подорож і взяв він з собою тільки `;
+        part2 += `є чудодійне джерело, вода якого дарує вічну молодість. І задумав злий король жити вічно. Тож відправився ${protagonist} у далеку подорож і взяв він з собою тільки `;
 
         if (helper === "меч і щит") {
           part2 += `свої вірні меч і щит.`;
         } else if (helper === "чарівна палочка") {
           part2 += `свою вірну чарівну палочку`;
           if (protagonist === "лицар") {
-            part2 += `, подарунок від придворного мага.`;
+            part2 += `: подарунок від придворного мага.`;
           } else {
             part2 += `.`;
           }
@@ -149,6 +156,18 @@ const Story = (props) => {
   }
 
   if (protagonists) {
+    if (!name && protagonist === "дракон") {
+      name = namesDragon[namesDragonIndex];
+    }
+
+    if (!name && protagonist === "ельф") {
+      name = namesElf[namesElfIndex];
+    }
+
+    if (!name && protagonist === "русалка") {
+      name = namesMermaid[namesMermaidIndex];
+    }
+
     part2 = "Вони жили ";
 
     if (place === "чарівний ліс" && protagonist !== "русалка") {

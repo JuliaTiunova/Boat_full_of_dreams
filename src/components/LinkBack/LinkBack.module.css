@@ -1,0 +1,18 @@
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Jost", sans-serif;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px #727272;
+  font-size: 18px;
+  color: #313131;
+  background: 0;
+  outline: 0;
+  border: 0;
+}
+
+.link:hover {
+  color: #505050;
+  text-shadow: none;
+  cursor: pointer;
+}
