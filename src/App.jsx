@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import "animate.css";
 import About from "./components/About/About";
+import Button from "./components/Button/Button";
 import Form from "./components/Form/Form";
 import Menu from "./components/Menu/Menu";
 import Story from "./components/Story/Story";
@@ -10,8 +11,7 @@ import Contacts from "./components/Contacts/Contacts";
 import Title2 from "./components/Title2/Title2";
 import LinkBack from "./components/LinkBack/LinkBack";
 import {
-  BrowserRouter as Router,
-  Switch,
+  BrowserRouter as Switch,
   Route,
   Link,
   Redirect,
@@ -22,13 +22,6 @@ import MenuBurger from "./components/MenuBurger/MenuBurger";
 import { useState } from "react";
 
 function App(props) {
-  // function getGreeting(user) {
-  //   if (user) {
-  //     return `Hello, {user}`;
-  //   }
-  //   return `Welcome, dreamer!`;
-  // }
-
   const history = useHistory();
 
   const Greetings = () => {
@@ -47,6 +40,9 @@ function App(props) {
       <Route path="/" exact>
         <div className={styles.wrapper}>
           <header className={styles.header}>
+            <a href="#">
+              <div className={styles.logo}></div>
+            </a>
             <Menu className={styles.menu} />
             <BurgerButton className={styles.burger} />
             <MenuBurger className={styles.burgerMenu} />
@@ -86,6 +82,14 @@ function App(props) {
         ) : (
           <Redirect to="/form" />
         )}
+        <div className={styles.divWrapper}>
+          <Link to="/">
+            <Button className={styles.storyLink} text="на головну" />
+          </Link>
+          <Link to="/form">
+            <Button className={styles.storyLink} text="до форми" />
+          </Link>
+        </div>
       </Route>
     </Switch>
   );
