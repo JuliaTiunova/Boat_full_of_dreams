@@ -1,7 +1,11 @@
 .wrapper {
-  padding: 30px 150px;
+  padding: 30px 0;
 }
-
+@media (max-width: 767.98px) {
+  .wrapper {
+    padding: 60px 0;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -37,6 +41,12 @@ label {
 .buttonWrapper {
   display: flex;
   gap: 20px;
+}
+
+@media (max-width: 767.98px) {
+  .buttonWrapper {
+    flex-direction: column;
+  }
 }
 
 .button {

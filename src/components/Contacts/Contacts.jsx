@@ -2,7 +2,7 @@ import styles from "./Contacts.module.css";
 import Social from "../Social/Social";
 import Button from "../Button/Button";
 
-const Contacts = () => {
+const Contacts = (props) => {
   return (
     <div className={styles.contacts}>
       <form className={styles.form} action="#">

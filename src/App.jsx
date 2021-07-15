@@ -1,6 +1,5 @@
-import { render } from "@testing-library/react";
-import "animate.css";
 import styles from "./App.module.css";
+import "animate.css";
 import About from "./components/About/About";
 import Form from "./components/Form/Form";
 import Menu from "./components/Menu/Menu";
@@ -10,7 +9,17 @@ import Instruction from "./components/Instruction/Instruction";
 import Contacts from "./components/Contacts/Contacts";
 import Title2 from "./components/Title2/Title2";
 import LinkBack from "./components/LinkBack/LinkBack";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
+import BurgerButton from "./components/BurgerButton/BurgerButton";
+import MenuBurger from "./components/MenuBurger/MenuBurger";
+import { useState } from "react";
 
 function App(props) {
   // function getGreeting(user) {
@@ -20,61 +29,65 @@ function App(props) {
   //   return `Welcome, dreamer!`;
   // }
 
+  const history = useHistory();
+
   const Greetings = () => {
     return <h1 className={styles.title}>Вітаю, сновидцю!</h1>;
   };
 
-  const handleAdd = (protagonist, place, name, helper, power, mood) => {
-    let prota = protagonist;
-    let protaName = name;
-    let protaPlace = place;
-    let protaHelper = helper;
-    let protaPower = power;
-    let taleMood = mood;
-    render(
-      <Story
-        protagonist={prota}
-        place={protaPlace}
-        name={protaName}
-        helper={protaHelper}
-        power={protaPower}
-        mood={taleMood}
-      />
-    );
+  const [story, setStory] = useState(null);
+
+  const handleAdd = (newStory) => {
+    setStory(newStory);
+    history.push("/story");
   };
 
   return (
-    <Router>
-      <div className={styles.wrapper}>
-        <header className={styles.header}>
-          {/* <Corner /> */}
-          <Menu className={styles.menu} />
-          <Greetings />
-          <Link to="/form">
-            <Subtitle className="animate__animated animate__pulse animate__slower	 animate__infinite " />
-          </Link>{" "}
-        </header>
-        <section>
-          <About />
-        </section>
-        <section>
-          <Instruction />
-        </section>
-        <section></section>
-        <footer className={styles.footer}>
-          <Title2 className={styles.titleSmall} text="Напиши нам" />
-          <Contacts />
-        </footer>
-      </div>
-      <Switch>
-        <Route path="/form">
-          <Form onAdd={handleAdd} />
-          <Link to="/">
-            <LinkBack className={styles.link} />
-          </Link>
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path="/" exact>
+        <div className={styles.wrapper}>
+          <header className={styles.header}>
+            <Menu className={styles.menu} />
+            <BurgerButton className={styles.burger} />
+            <MenuBurger className={styles.burgerMenu} />
+            <Greetings />
+            <Link to="/form">
+              <Subtitle className="animate__animated animate__pulse animate__slower	animate__infinite" />
+            </Link>{" "}
+          </header>
+          <section>
+            <About />
+          </section>
+          <section>
+            <Instruction />
+          </section>
+          <footer className={styles.footer}>
+            <Title2 className={styles.titleSmall} text="Напиши нам" />
+            <Contacts />
+          </footer>
+        </div>
+      </Route>
+      <Route path="/form" exact>
+        <Form onAdd={handleAdd} />
+        <Link to="/">
+          <LinkBack className={styles.link} />
+        </Link>
+      </Route>
+      <Route path="/story">
+        {story ? (
+          <Story
+            protagonist={story.protagonist}
+            place={story.place}
+            name={story.name}
+            helper={story.helper}
+            power={story.power}
+            mood={story.mood}
+          />
+        ) : (
+          <Redirect to="/form" />
+        )}
+      </Route>
+    </Switch>
   );
 }
 

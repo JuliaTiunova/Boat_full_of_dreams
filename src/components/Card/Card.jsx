@@ -5,7 +5,6 @@ const Card = (props) => {
   return (
     <div className={cn(styles.card, props.className)}>
       <div className={styles.decor}></div>
-      <img src={props.src} alt={props.alt} />
       <h3 className={styles.title}>{props.title}</h3>
       <p className={styles.text}>{props.text}</p>
     </div>

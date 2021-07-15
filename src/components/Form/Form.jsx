@@ -43,20 +43,7 @@ const Form = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onAdd(protagonist, place, name, helper, power, mood);
-    console.log(
-      protagonist +
-        " " +
-        place +
-        " " +
-        name +
-        " " +
-        helper +
-        " " +
-        power +
-        " " +
-        mood
-    );
+    props.onAdd({ protagonist, place, name, helper, power, mood });
   };
 
   const handleReset = (event) => {
@@ -113,7 +100,6 @@ const Form = (props) => {
           onChange={handleSaveHelpers}
           name="helpers"
           id="helpers"
-          required
         >
           <option value="" hidden></option>
           <Option array={helpers} />

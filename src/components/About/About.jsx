@@ -4,7 +4,7 @@ import Title2 from "../Title2/Title2";
 
 const About = () => {
   return (
-    <div className={styles.about}>
+    <div className={styles.about} id="about">
       <Title2 className={styles.title} text="Генератор Казок" />
       <div className={styles.wrapper}>
         <div className={cn(styles.decorationTop, styles.decoration)}></div>
@@ -16,7 +16,6 @@ const About = () => {
           <span> інструкції</span> чи одразу пірнайте у
           <span id="vyriy"> вирій</span>. На вас чекають пригоди!
         </p>
-
         <div className={cn(styles.imgTop, styles.img)}></div>
       </div>
       <div className={styles.wrapper}>

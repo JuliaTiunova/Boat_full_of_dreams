@@ -11,7 +11,21 @@
   margin: 0 auto;
   overflow: hidden;
 }
-
+@media (max-width: 1199.98px) {
+  .instruction {
+    padding: 80px 60px;
+  }
+}
+@media (max-width: 991.98px) {
+  .instruction {
+    padding: 40px 50px;
+  }
+}
+@media (max-width: 575.98px) {
+  .instruction {
+    padding: 40px 20px;
+  }
+}
 .title {
   margin-bottom: 45px;
   color: #fff;
@@ -24,6 +38,19 @@
   grid-template-rows: 1fr 1fr;
   gap: 50px;
 }
+
+@media (max-width: 1199.98px) {
+  .wrapper {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .wizardWrapper,
 .knightWrapper,
 .smokeWrapper,
@@ -43,7 +70,7 @@
   right: 20px;
 }
 
-.knight::after {
+.smoke::after {
   content: "";
   background: url(./smoke.svg) center center no-repeat;
   background-size: contain;
@@ -55,7 +82,7 @@
   right: 20px;
 }
 
-.smoke::after {
+.knight::after {
   content: "";
   background: url(./knight.svg) center center no-repeat;
   background-size: contain;
@@ -67,19 +94,22 @@
   right: 20px;
 }
 
-/* .book::after {
-  content: "";
-  background: url(./magic-book.svg) center center no-repeat;
-  background-size: contain;
-  background-blend-mode: lighten;
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  bottom: 10px;
-  left: 50%;
-  transform: translate(-50%);
-} */
+@media (max-width: 991.98px) {
+  .wizard::after,
+  .smoke::after,
+  .knight::after {
+    display: none;
+  }
+}
+
 .cardBig {
   grid-column: 1 / 2;
   grid-row: 2 / 4;
+}
+
+@media (max-width: 767.98px) {
+  .cardBig {
+    grid-column: 1;
+    grid-row: 4;
+  }
 }
