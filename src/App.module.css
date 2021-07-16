@@ -21,7 +21,7 @@
   width: 50px;
   height: 50px;
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   left: 20px;
   background: url(./Logo.png) center center no-repeat;
   background-size: cover;
@@ -123,6 +123,7 @@
   position: absolute;
   top: 0;
   left: 50%;
+  display: flex;
   transform: translate(-50%);
 }
 
@@ -131,4 +132,7 @@
   border: 0;
   outline: 0;
   margin: 10px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
 }
