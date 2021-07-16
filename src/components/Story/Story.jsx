@@ -1,8 +1,8 @@
 import {
   beginning,
-  creatures,
   expoHero,
   expoHeroess,
+  helpers,
   moodOf,
   mountainPlaceDragon,
   namesDragon,
@@ -13,6 +13,7 @@ import {
   placesAll,
   placesForest,
   placesPlusMountain,
+  protagonistsAll,
   waterPlace,
 } from "../../arrays/arrays";
 import { beginningPlus } from "../../arrays/arrays";
@@ -30,7 +31,6 @@ const findRandomIndex = (length) => {
 
 const Story = (props) => {
   const beginningIndex = findRandomIndex(beginning.length);
-  const creturesIndex = findRandomIndex(creatures.length);
   const waterPlaceIndex = findRandomIndex(waterPlace.length);
   const mountainPlaceDragonIndex = findRandomIndex(mountainPlaceDragon.length);
   const placesForestIndex = findRandomIndex(placesForest.length);
@@ -42,6 +42,8 @@ const Story = (props) => {
   const placesAllIndex = findRandomIndex(placesAll.length);
   const namesKnightWizardIndex = findRandomIndex(namesKnightWizard.length);
   const namesPrincessWitchIndex = findRandomIndex(namesPrincessWitch.length);
+  const protagonistsAllIndex = findRandomIndex(protagonistsAll.length);
+  const helpersIndex = findRandomIndex(helpers.length);
 
   let protagonist = props.protagonist;
   let place = props.place;
@@ -58,12 +60,20 @@ const Story = (props) => {
   let part2_1 = "";
   let part2_2 = "";
   let part3 = "";
+  let part3_1 = "";
+  let part3_2 = "";
 
   if (mood === "") {
     mood = moodOf[moodOfIndex];
   }
   if (place === "") {
     place = placesAll[placesAllIndex];
+  }
+  if (protagonist === "") {
+    protagonist = protagonistsAll[protagonistsAllIndex];
+  }
+  if (helper === "") {
+    helper = helpers[helpersIndex];
   }
 
   if (beginningIndex <= 3) {
@@ -95,8 +105,6 @@ const Story = (props) => {
       protagonists = "ельфи";
       // } else if (protagonist === "єдиноріг") {
       //   protagonists = "єдинороги";
-    } else if (protagonist === "") {
-      protagonists = creatures[creturesIndex];
     }
     beginningEndChain = `існували ${protagonists}.`;
   }
@@ -104,8 +112,8 @@ const Story = (props) => {
   // for part2
   if (!protagonists) {
     if (protagonist === "лицар" || protagonist === "чарівник") {
-      if (mood === "повчальна") {
-        part2 = `Він був дуже добрим, але ще дитиною його віддали на службу до злого короля.
+      if (mood === "повчальна" || mood === "моторошна") {
+        part2 += `Він був дуже добрим, але ще дитиною його віддали на службу до злого короля.
          Почув одного дня король, що десь `;
         switch (place) {
           case "чарівний ліс":
@@ -196,13 +204,10 @@ const Story = (props) => {
 
       if (mood === "моторошна") {
       }
-
-      if (mood === "весела") {
-      }
     }
 
     if (protagonist === "принцеса" || protagonist === "чарівниця") {
-      if (mood === "повчальна") {
+      if (mood === "повчальна" || mood === " моторошна") {
         part2 = `Вона мала яскраве руде волосся, що, нажаль, було неприпустимим для її народу.
          Та одного разу її батьки почули про чарівне джерело, яке може виконати будь-яке бажання. Але знайти це джерело можна було тільки `;
 
@@ -260,7 +265,7 @@ const Story = (props) => {
       name = namesMermaid[namesMermaidIndex];
     }
 
-    part2 = "Вони жили ";
+    part2 += "Вони жили ";
 
     if (place === "чарівний ліс" && protagonist !== "русалка") {
       part2 += `у густих-густих лісах, ${placesForest[placesForestIndex]}. `;
@@ -270,43 +275,56 @@ const Story = (props) => {
       part2 += "високо в горах, ";
     }
 
-    if (
-      place === "гори" &&
-      protagonist === "ельф" &&
-      protagonist !== "дракон"
-    ) {
-      part2 += `${placesPlusMountain[placesPlusMountainIndex]}.`;
+    if (protagonist === "ельф") {
+      if (mood === "моторошна" || mood === "повчальна") {
+        if (place === "гори") {
+          part2 += `${placesPlusMountain[placesPlusMountainIndex]}.`;
+        }
+      }
     }
 
     if (protagonist === "русалка") {
-      if (place === "чарівний ліс") {
-        part2 += `в озері захованому в хащах густого-густого лісу, хоча не раз їх бачили на болотах.`;
-      }
-      if (place === "гори") {
-        part2_1 = waterPlace[waterPlaceIndex];
-        if (waterPlaceIndex === 0) {
-          part2_2 = "озерн";
+      if (mood === "моторошна" || mood === "повчальна" || mood === "героїчна") {
+        if (place === "чарівний ліс") {
+          part2 += `в озері захованому в хащах густого-густого лісу, хоча не раз їх бачили на болотах. `;
+        } else if (place === "море/океан...") {
+          part2 += `на дні глибокого моря. Там вони будували високі коралові палаци`;
+          if (mood === "моторошна") {
+            part2 += `в яких ніхто ніколи не жив. Вежі здіймалися з глибин, немов покинуті скульптури, і стояли собі серед води порожні і самотні.`;
+          }
+        } else if (place === "гори") {
+          part2_1 = waterPlace[waterPlaceIndex];
+          if (waterPlaceIndex === 0) {
+            part2_2 = "озерн";
+          } else {
+            part2_2 = "річков";
+          }
+          part2 += `на дні ${part2_1} і їм було дуже-дуже холодно. Коли наставала зима, їхня луска тверділа, мов лід і русалки опускалися на ${part2_2}е дно, невзмозі поворухнути хвостами. Там вони лежали всю зиму, мов кришталеві скульптури`;
+
+          if (mood === "моторошна") {
+            part2 += ` i ніхто, крім потопельників, не міг побачити їх`;
+          }
+
+          part2 += `. А наприкінці весни, коли лід танув, русалки підіймалися на поверхню, бентежили незворушні води і співали. З їхніх вуст зривався холодний подих і над ${part2_2}им плесом стелився туман. `;
+
+          // if (power === "вміння літати") {
+          //   part2 += ` і вона все життя мріяла літати.`;
+          // }
+        } else if (place === "місто") {
+          part2 += `колись в морі, в своїх коралових палацах, де золота луска їхня виблискувала в фосфорному світлі. Та врешті їх спіймали в тенета жорстокі люди, бо ж русалки були чарівні і вміли виконувати бажання. Тепер вони жили в великих акваріумах і щоб не померти з голоду виконували забаганки багатих людей.`;
+        }
+        part2 += `Одну з тих русалок звали ${name} і найбільше за все вона мріяла `;
+        if (place !== "місто") {
+          part2 += `побачити світ. `;
         } else {
-          part2_2 = "річков";
+          part2 += `про порятунок. `;
         }
-        part2 += `на дні ${part2_1} і їм було дуже-дуже холодно. Коли наставала зима, їхня луска тверділа, мов лід і русалки опускалися на ${part2_2}е дно, невзмозі поворухнути хвостами. Там вони лежали всю зиму, мов кришталеві скульптури`;
-
-        if (mood === "моторошна") {
-          part2 += ` i ніхто, крім потопельників, не міг побачити їх`;
-        }
-
-        part2 += `. А наприкінці весни, коли лід танув, русалки підіймалися на поверхню, бентежили незворушні води і співали. З їхніх вуст зривався холодний подих і над ${part2_2}им плесом стелився туман. 
-      Одну з таких русалок звали ${name}`;
-
-        // if (power === "вміння літати") {
-        //   part2 += ` і вона все життя мріяла літати.`;
-        // }
       }
     }
 
     if (protagonist === "дракон") {
-      if (place === "гори") {
-        if (mood === "моторошна" || mood === "повчальна") {
+      if (mood === "моторошна" || mood === "повчальна") {
+        if (place === "гори") {
           part2 += `${mountainPlaceDragon[mountainPlaceDragonIndex]}. Коли їм снилися погані сни, їхні пазурі впивалися в каміння, а з їхніх пащ виривалося жовте полум'я. `;
 
           if (mood === "моторошна") {
@@ -321,19 +339,56 @@ const Story = (props) => {
 
   if (!protagonists) {
     if (protagonist === "лицар" || protagonist === "чарівник") {
-      if (mood === "повчальна") {
-        part3 = `Першого ж дня зустрів ${name} на своєму шляху велетенське дерево, яке обсіли ворони. `;
+      if (mood === "повчальна" || mood === "моторошна") {
+        part3 += `Першого ж дня зустрів ${name} на своєму шляху велетенське дерево, яке обсіли ворони. Він хотів було `;
+        if (helper !== "кінь") {
+          part3 += `пройти `;
+        } else {
+          part3 += `проїхати `;
+        }
+        part3 += `повз, але раптом дерево заговорило:`;
+        part3_1 += `- Ти мабуть сильний та сміливий ${protagonist}, якщо ідеш цією дорогою. Благаю, допоможи мені позбутися цих ворон. `;
+        part3_2 += `${name}, не довго думаючи, `;
+
+        switch (helper) {
+          case "меч і щит":
+            part3_2 += `змахнув своїм мечем `;
+            break;
+          case "чарівна палочка":
+            part3_2 += `змахнув чарівною палочкою `;
+
+            break;
+          case "лук і стріли":
+            part3_2 += `пустив стрілу зі свого лука `;
+            break;
+          case "кінь":
+            part3_2 += `зійшов зі свого коня `;
+            if (protagonist === "лицар") {
+              part3_2 += `та як потрусив могутнє дерево з усієї сили `;
+            } else if (protagonist === "чарівник") {
+              part3_2 += `і почав чаклувати над деревом `;
+            }
+            break;
+          case "троянда":
+            part3_2 += `притулив до стовбура чарівну троянду `;
+            break;
+          default:
+        }
+        part3_2 += `і всі ворони, як одна, полетіли в небо. `;
       }
     }
   }
 
   const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain} 
-  ${part2}`;
+  ${part2} ${part3}`;
   console.log(story);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{title}</h1>
-      <p className={styles.text}>{story}</p>
+      <p className={styles.text}>
+        {beginning[beginningIndex]} {beginningPlusStory} {beginningEndChain}{" "}
+        {part2} <br /> {part3} <br /> {part3_1} <br /> {part3_2}
+      </p>
     </div>
   );
 };
