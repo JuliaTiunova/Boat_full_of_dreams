@@ -4,7 +4,7 @@ import cn from "classnames";
 const Menu = (props) => {
   const about = document.getElementById("about");
   const instruction = document.getElementById("instruction");
-  const contacts = document.getElementById("contacts");
+  const contacts = document.getElementById("contact");
 
   function handleScroll() {
     about.scrollIntoView({ behavior: "smooth" });

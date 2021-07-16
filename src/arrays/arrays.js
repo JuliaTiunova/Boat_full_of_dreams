@@ -32,6 +32,10 @@ export const moodOf = ["повчальна", "героїчна", "моторош
 
 export const waterPlace = ["глибокого озера", "глибокої річки"];
 
+export const namesKnightWizard = ["Полель", "Яр", "Артур"];
+
+export const namesPrincessWitch = ["Еліза", "Анна", "Леля"];
+
 export const namesDragon = [
   "Ельдур", // "Вогонь" ісландською
   "Катла", // "Котел" ісландською

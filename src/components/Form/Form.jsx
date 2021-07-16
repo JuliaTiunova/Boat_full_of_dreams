@@ -33,9 +33,9 @@ const Form = (props) => {
     setHelper(event.target.value);
   };
 
-  const handleSavePower = (event) => {
-    setPower(event.target.value);
-  };
+  // const handleSavePower = (event) => {
+  //   setPower(event.target.value);
+  // };
 
   const handleSaveMood = (event) => {
     setMood(event.target.value);
@@ -104,7 +104,7 @@ const Form = (props) => {
           <option value="" hidden></option>
           <Option array={helpers} />
         </select>
-        <label htmlFor="power">Надай йому/їй сили</label>
+        {/* <label htmlFor="power">Надай йому/їй сили</label>
         <select
           className={styles.input}
           value={power}
@@ -114,7 +114,7 @@ const Form = (props) => {
         >
           <option value="" hidden></option>
           <Option array={powers} />
-        </select>
+        </select> */}
         <label htmlFor="mood">Обери настрій</label>
         <select
           className={styles.input}

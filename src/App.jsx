@@ -11,7 +11,8 @@ import Contacts from "./components/Contacts/Contacts";
 import Title2 from "./components/Title2/Title2";
 import LinkBack from "./components/LinkBack/LinkBack";
 import {
-  BrowserRouter as Switch,
+  BrowserRouter as Router,
+  Switch,
   Route,
   Link,
   Redirect,
@@ -21,7 +22,7 @@ import BurgerButton from "./components/BurgerButton/BurgerButton";
 import MenuBurger from "./components/MenuBurger/MenuBurger";
 import { useState } from "react";
 
-function App(props) {
+function App() {
   const history = useHistory();
 
   const Greetings = () => {
@@ -29,6 +30,15 @@ function App(props) {
   };
 
   const [story, setStory] = useState(null);
+  const [open, setOpen] = useState(null);
+
+  const handleBurger = (openMenu) => {
+    if (!open) {
+      setOpen(openMenu);
+    } else {
+      setOpen(null);
+    }
+  };
 
   const handleAdd = (newStory) => {
     setStory(newStory);
@@ -39,25 +49,25 @@ function App(props) {
     <Switch>
       <Route path="/" exact>
         <div className={styles.wrapper}>
-          <header className={styles.header}>
-            <a href="#">
+          <header className={styles.header} id="header">
+            <a href="#header">
               <div className={styles.logo}></div>
             </a>
             <Menu className={styles.menu} />
-            <BurgerButton className={styles.burger} />
-            <MenuBurger className={styles.burgerMenu} />
+            <BurgerButton className={styles.burger} onClick={handleBurger} />
+            {open ? <MenuBurger className={styles.burgerMenu} /> : ""}
             <Greetings />
             <Link to="/form">
               <Subtitle className="animate__animated animate__pulse animate__slower	animate__infinite" />
             </Link>{" "}
           </header>
-          <section>
+          <section id="about">
             <About />
           </section>
-          <section>
+          <section id="instruction">
             <Instruction />
           </section>
-          <footer className={styles.footer}>
+          <footer className={styles.footer} id="contact">
             <Title2 className={styles.titleSmall} text="Напиши нам" />
             <Contacts />
           </footer>

@@ -51,11 +51,8 @@
 }
 
 .burgerMenu {
-  display: none;
-}
-
-.menuOpen.burgerMenu {
-  display: block;
+  position: absolute;
+  top: 50px;
 }
 
 .title {
@@ -102,6 +99,11 @@
   color: #fff;
   text-shadow: 1px 1px 3px #ffffffb1;
   margin-bottom: 65px;
+}
+@media (max-width: 767.98px) {
+  .titleSmall {
+    margin-bottom: 20px;
+  }
 }
 
 .link {

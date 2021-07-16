@@ -1,11 +1,55 @@
 .menu {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  padding-top: 65px;
+  text-align: right;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    #0e1e34 50%
+  );
+  z-index: 999;
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .menu {
+    display: block;
+  }
 }
 
 .list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
 }
 
 .item {
+  padding: 20px 0;
+  position: relative;
+}
+.item::after {
+  content: "";
+  height: 2px;
+  width: 75%;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    #ffffff 100%
+  );
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 3px;
 }
 
 .link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 22px;
 }

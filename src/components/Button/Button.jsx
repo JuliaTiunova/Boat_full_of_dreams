@@ -3,7 +3,11 @@ import cn from "classnames";
 
 const Button = (props) => {
   return (
-    <button className={cn(styles.button, props.className)} type={props.type}>
+    <button
+      className={cn(styles.button, props.className)}
+      type={props.type}
+      href={props.href}
+    >
       {props.text}
     </button>
   );
