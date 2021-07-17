@@ -1,5 +1,6 @@
 import {
   beginning,
+  beginningPlus,
   expoHero,
   expoHeroess,
   helpers,
@@ -16,7 +17,6 @@ import {
   protagonistsAll,
   waterPlace,
 } from "../../arrays/arrays";
-import { beginningPlus } from "../../arrays/arrays";
 
 import styles from "./Story.module.css";
 
@@ -29,21 +29,14 @@ const findRandomIndex = (length) => {
   return index;
 };
 
+const findRandomElement = (arr) => {
+  const index = findRandomIndex(arr.length);
+  const element = arr[index];
+  return element;
+};
+
 const Story = (props) => {
   const beginningIndex = findRandomIndex(beginning.length);
-  const waterPlaceIndex = findRandomIndex(waterPlace.length);
-  const mountainPlaceDragonIndex = findRandomIndex(mountainPlaceDragon.length);
-  const placesForestIndex = findRandomIndex(placesForest.length);
-  const placesPlusMountainIndex = findRandomIndex(placesPlusMountain.length);
-  const namesDragonIndex = findRandomIndex(namesDragon.length);
-  const namesElfIndex = findRandomIndex(namesElf.length);
-  const namesMermaidIndex = findRandomIndex(namesMermaid.length);
-  const moodOfIndex = findRandomIndex(moodOf.length);
-  const placesAllIndex = findRandomIndex(placesAll.length);
-  const namesKnightWizardIndex = findRandomIndex(namesKnightWizard.length);
-  const namesPrincessWitchIndex = findRandomIndex(namesPrincessWitch.length);
-  const protagonistsAllIndex = findRandomIndex(protagonistsAll.length);
-  const helpersIndex = findRandomIndex(helpers.length);
 
   let protagonist = props.protagonist;
   let place = props.place;
@@ -64,38 +57,38 @@ const Story = (props) => {
   let part3_2 = "";
 
   if (mood === "") {
-    mood = moodOf[moodOfIndex];
+    mood = findRandomElement(moodOf);
   }
   if (place === "") {
-    place = placesAll[placesAllIndex];
+    place = findRandomElement(placesAll);
   }
   if (protagonist === "") {
-    protagonist = protagonistsAll[protagonistsAllIndex];
+    protagonist = findRandomElement(protagonistsAll);
   }
   if (helper === "") {
-    helper = helpers[helpersIndex];
+    helper = findRandomElement(helpers);
   }
 
   if (beginningIndex <= 3) {
-    beginningPlusStory = beginningPlus[findRandomIndex(beginningPlus.length)];
+    beginningPlusStory = findRandomElement(beginningPlus);
   } else {
     beginningPlusStory = "";
   }
 
   if (protagonist === "лицар" || protagonist === "чарівник") {
     if (name === "") {
-      name = namesKnightWizard[namesKnightWizardIndex];
+      name = findRandomElement(namesKnightWizard);
     }
-    beginningEndChain = `${
-      expoHero[findRandomIndex(expoHero.length)]
-    } ${protagonist} на ім'я ${name}.`;
+    beginningEndChain = `${findRandomElement(
+      expoHero
+    )} ${protagonist} на ім'я ${name}.`;
   } else if (protagonist === "принцеса" || protagonist === "чарівниця") {
     if (name === "") {
-      name = namesPrincessWitch[namesPrincessWitchIndex];
+      name = findRandomElement(namesPrincessWitch);
     }
-    beginningEndChain = `${
-      expoHeroess[findRandomIndex(expoHeroess.length)]
-    } ${protagonist} на ім'я ${name}.`;
+    beginningEndChain = `${findRandomElement(
+      expoHeroess
+    )} ${protagonist} на ім'я ${name}.`;
   } else {
     if (protagonist === "русалка") {
       protagonists = "русалки";
@@ -159,7 +152,7 @@ const Story = (props) => {
       }
 
       if (mood === "героїчна") {
-        part2 += `Він мав надзвичайну силу і звичайні люди боялися його, тож ${protagonist} ${name}, почувши, що один король хоче взяти його на службу, відправився в далеку подорож. Жив король `;
+        part2 += `Він мав надзвичайну силу і прості люди боялися його, тож ${protagonist} ${name}, почувши, що один король хоче взяти його на службу, відправився в далеку подорож. Жив король `;
 
         switch (place) {
           case "чарівний ліс":
@@ -278,28 +271,70 @@ const Story = (props) => {
       }
 
       if (mood === "героїчна") {
-        part2 += `Вона мала надзвичайну силу`;
+        part2 += `Вона мала надзвичайну силу, тому прості люди, і навіть власні батьки її боялися.`;
+
+        part2_3 += `Та ось почула якось ${protagonist}, що живе `;
+
+        if (place === "чарівний ліс") {
+          part2_3 += `в далекому чарівному лісі `;
+        } else if (place === "море/океан...") {
+          part2_3 += `на безлюдному острові в далекому океані `;
+        } else if (place === "гори") {
+          part2_3 += `в далеких горах, на самій вершині, що впирається в небо `;
+        } else if (place === "місто") {
+          part2_3 += `в далекому невідомому місті `;
+        }
+
+        part2_3 += `одна королева, яка нічого не боїться. ${name} взяла`;
+
+        if (helper === "меч і щит") {
+          part2 += `свої вірні меч і щит.`;
+        } else if (helper === "чарівна палочка") {
+          part2 += `свою вірну чарівну палочку`;
+          if (protagonist === "принцеса") {
+            part2 += `, подарунок від придворного мага.`;
+          } else {
+            part2 += `.`;
+          }
+        } else if (helper === "лук і стріли") {
+          part2 += `свої вірні лук і стріли.`;
+        } else if (helper === "кінь") {
+          part2 += `свого вірного коня.`;
+        } else if (helper === "троянда") {
+          part2 += `чарівну троянду.`;
+        }
+
+        part2_3 += `і вирушила на пошуки королеви, шукати поради. `;
+      }
+
+      if (mood === "повчальна" || mood === "моторошна" || mood === "героїчна") {
+        if (helper === !"кінь") {
+          part3 += `Їхала `;
+        } else {
+          part3 += `Йшла `;
+        }
+        part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху широку бурхливу річку, яку ні переплисти, ні в брід не пройти `;
       }
     }
   }
 
   if (protagonists) {
     if (!name && protagonist === "дракон") {
-      name = namesDragon[namesDragonIndex];
+      name = findRandomElement(namesDragon);
     }
 
     if (!name && protagonist === "ельф") {
-      name = namesElf[namesElfIndex];
+      name = findRandomElement(namesElf);
     }
 
     if (!name && protagonist === "русалка") {
-      name = namesMermaid[namesMermaidIndex];
+      name = findRandomElement(namesMermaid);
     }
 
     part2 += "Вони жили ";
 
     if (place === "чарівний ліс" && protagonist !== "русалка") {
-      part2 += `у густих-густих лісах, ${placesForest[placesForestIndex]}. `;
+      part2 += `у густих-густих лісах, ${findRandomElement(placesForest)}. `;
     }
 
     if (place === "гори") {
@@ -309,7 +344,7 @@ const Story = (props) => {
     if (protagonist === "ельф") {
       if (mood === "моторошна" || mood === "повчальна") {
         if (place === "гори") {
-          part2 += `${placesPlusMountain[placesPlusMountainIndex]}. `;
+          part2 += `${findRandomElement(placesPlusMountain)}. `;
         }
         if (place === "море/океан...") {
           part2 += `в чарівному королівстві під водою і там будували собі високі палаци. `;
@@ -330,8 +365,8 @@ const Story = (props) => {
             part2 += `в яких ніхто ніколи не жив. Вежі здіймалися з глибин, немов покинуті скульптури, і стояли собі серед води порожні і самотні.`;
           }
         } else if (place === "гори") {
-          part2_1 = waterPlace[waterPlaceIndex];
-          if (waterPlaceIndex === 0) {
+          part2_1 = findRandomElement(waterPlace);
+          if (waterPlace === "глибокого озера") {
             part2_2 = "озерн";
           } else {
             part2_2 = "річков";
@@ -348,7 +383,7 @@ const Story = (props) => {
           //   part2 += ` і вона все життя мріяла літати.`;
           // }
         } else if (place === "місто") {
-          part2 += `колись в морі, в своїх коралових палацах, де золота луска їхня виблискувала в фосфорному світлі. Та врешті їх спіймали в тенета жорстокі люди, бо ж русалки були чарівні і вміли виконувати бажання. Тепер вони жили в великих акваріумах і щоб не померти з голоду виконували забаганки багатих людей.`;
+          part2 += `колись в морі, в своїх коралових палацах, де золота луска їхня виблискувала в фосфорному світлі. Та врешті їх спіймали в тенета жорстокі люди, бо ж русалки були чарівні і вміли виконувати бажання. Тепер вони жили у великих містах, заточені в  акваріуми і щоб не померти з голоду виконували забаганки багатих людей.`;
         }
         part2_3 += `Одну з тих русалок звали ${name} і найбільше за все вона мріяла `;
         if (place !== "місто") {
@@ -360,9 +395,11 @@ const Story = (props) => {
     }
 
     if (protagonist === "дракон") {
-      if (mood === "моторошна" || mood === "повчальна") {
+      if (mood === "моторошна" || mood === "повчальна" || mood === "героїчна") {
         if (place === "гори") {
-          part2 += `${mountainPlaceDragon[mountainPlaceDragonIndex]}. Коли їм снилися погані сни, їхні пазурі впивалися в каміння, а з їхніх пащ виривалося жовте полум'я. `;
+          part2 += `${findRandomElement(
+            mountainPlaceDragon
+          )}. Коли їм снилися погані сни, їхні пазурі впивалися в каміння, а з їхніх пащ виривалося жовте полум'я. `;
 
           if (mood === "моторошна") {
             part2 += `Воно освітлювало дно урвища, де лежали обгризені черепи та кості давно вже забутих людей.`;
@@ -374,13 +411,13 @@ const Story = (props) => {
         if (place === "місто") {
           part2 += `колись у високих горах і полювали на гномів, але врешті люди винищили усіх, крім одного. Звали його ${name} `;
         }
+
+        if (place !== "місто") {
+        }
       }
     }
   }
 
-  const story = `${beginning[beginningIndex]} ${beginningPlusStory} ${beginningEndChain} 
-  ${part2} ${part3}`;
-  console.log(story);
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>
