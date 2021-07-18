@@ -1,9 +1,10 @@
 import styles from "./LinkBack.module.css";
 import cn from "classnames";
+import Button from "../Button/Button";
 
 const LinkBack = (props) => {
   return (
-    <button className={cn(styles.link, props.className)}>Повернутись</button>
+    <Button className={cn(styles.link, props.className)} text="Повернутись" />
   );
 };
 

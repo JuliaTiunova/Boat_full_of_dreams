@@ -7,11 +7,9 @@
   font-size: 18px;
   background: 0;
   outline: 0;
-  border: 0;
 }
 
 .link:hover {
   color: #243135;
-  text-shadow: none;
   cursor: pointer;
 }
