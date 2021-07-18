@@ -1,11 +1,15 @@
 .wrapper {
-  padding: 30px 0;
+  padding: 100px 0;
+  min-height: 100vh;
+  background: url(./BG_mist.jpeg) center center no-repeat;
+  background-size: cover;
 }
 @media (max-width: 767.98px) {
   .wrapper {
     padding: 60px 0;
   }
 }
+
 .form {
   display: flex;
   flex-direction: column;
@@ -18,11 +22,51 @@ label {
   text-align: left;
 }
 
+.formSlide {
+  overflow: hidden;
+  max-width: 80vw;
+  max-height: 50vh;
+  height: 50vh;
+  border-radius: 50px;
+}
+
+@media (max-width: 575.98px) {
+  .formSlide {
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  padding: 20px;
+}
+
+.inputWrapper {
+  background-color: rgba(255, 255, 255, 0.658);
+  height: 90%;
+  position: relative;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
 .input {
   padding: 7px 12px;
   font-size: 22px;
   color: #fff;
-  background-image: linear-gradient(-45deg, #0b1930 0%, #221a1a 100%);
+  background-image: linear-gradient(-45deg, #0c5175 0%, #28352f 100%);
+  background-size: 120%;
+  background-position: center center;
   width: 300px;
   outline: 0;
   border: 0;
@@ -30,6 +74,12 @@ label {
   border-radius: 20px;
   transition: all 0.2s;
   border: 3px solid #00000000;
+}
+
+@media (max-width: 575.98px) {
+  .input {
+    max-width: 220px;
+  }
 }
 
 .input:active,
@@ -40,6 +90,7 @@ label {
 
 .buttonWrapper {
   display: flex;
+  margin-top: 50px;
   gap: 20px;
 }
 
@@ -50,12 +101,18 @@ label {
 }
 
 .button {
-  background-image: linear-gradient(-45deg, #102444 0%, #312525 50%, #fff 51%);
+  background: 0;
+  background-image: linear-gradient(
+    -45deg,
+    #0c5175 0%,
+    #28352f 50%,
+    rgba(255, 255, 255, 0.397) 51%
+  );
   background-size: 300%;
   transition: background-position 0.6s, color 0.8s;
   font-size: 18px;
   color: #303030;
-  border: 2px solid #0b1930;
+  border: 2px solid #2f3f46;
 }
 
 .button:hover {
