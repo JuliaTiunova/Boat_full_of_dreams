@@ -2,16 +2,16 @@ const InPlacePart2 = (place) => {
   let part2 = "";
 
   switch (place) {
-    case place === "чарівний ліс":
+    case "чарівний ліс":
       part2 += `в далекому чарівному лісі`;
       break;
-    case place === "море/океан...":
+    case "море/океан...":
       part2 += `на безлюдному острові в далекому океані`;
       break;
-    case place === "гори":
+    case "гори":
       part2 += `в далеких горах, на самій вершині, що впирається в небо`;
       break;
-    case place === "місто":
+    case "місто":
       part2 += `в далекому невідомому місті`;
       break;
     default:
