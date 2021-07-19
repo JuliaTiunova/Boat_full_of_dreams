@@ -1,30 +1,30 @@
 const TakeHelper = (helper, protagonist) => {
-  let part2 = "";
+  let text = "";
   switch (helper) {
     case "меч і щит":
-      part2 += `свої вірні меч і щит.`;
+      text += `свої вірні меч і щит.`;
       break;
     case "чарівна палочка":
-      part2 += `свою вірну чарівну палочку`;
+      text += `свою вірну чарівну палочку`;
       if (protagonist === "лицар" || protagonist === "принцеса") {
-        part2 += `: подарунок від придворного мага.`;
+        text += `: подарунок від придворного мага.`;
       } else {
-        part2 += `.`;
+        text += `.`;
       }
       break;
     case "лук і стріли":
-      part2 += `свої вірні лук і стріли.`;
+      text += `свої вірні лук і стріли.`;
       break;
     case "кінь":
-      part2 += `свого вірного коня.`;
+      text += `свого вірного коня.`;
       break;
     case "троянда":
-      part2 += `чарівну троянду.`;
+      text += `чарівну троянду.`;
       break;
     default:
   }
 
-  return part2;
+  return text;
 };
 
 export default TakeHelper;

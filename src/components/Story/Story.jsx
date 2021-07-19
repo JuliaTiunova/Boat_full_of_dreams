@@ -19,6 +19,7 @@ import {
 } from "../../arrays/arrays";
 import { river, tree, oldManRiver } from "../../constants/constants";
 import BoatRiverSpeach from "../../functions/BoatRiverSpeach";
+import HelperAcrossRiver from "../../functions/HelperAcrossRiver";
 
 import InPlacePart2 from "../../functions/InPlacePart2";
 import TakeHelper from "../../functions/TakeHelper";
@@ -195,10 +196,22 @@ const Story = (props) => {
 
         part4 += `Наступного дня ${protagonist} побачив перед собою ${river}. ${oldManRiver}. `;
 
-        part4_1 += `${name} спробував розбудити діда, але той навіть не ворухнувся, тоді ${name} спробував забрати весла, але старий тримав їх надто міцно. Сів ${protagonist} на берег та й задумався, раптом чує - човен до нього промовляє: `;
+        part4_1 += `${name} спробував розбудити діда, але той навіть не поворухнувся. Сів ${protagonist} на берег та й задумався, раптом чує - човен до нього промовляє: `;
         part4_2 += `${BoatRiverSpeach(protagonist)}`;
-        part4_3 += ``;
+        part4_3 += `${name} послухав своє добре серце і вирішив допомогти. `;
+        if (protagonist === "чарівник") {
+          part4_3 += `Змахнув руками, прошепотів закляття перед старим`;
+        } else if (protagonist === "лицар") {
+          part4_3 += `Взяв старого на руки `;
+        }
+        part4_3 += `і так переніс його на берег. Тоді забрав у діда весла, ${HelperAcrossRiver(
+          helper,
+          name
+        )}`;
+        part4_3 += `і поплив собі геть. `;
       }
+
+      // for part 5
     }
 
     if (protagonist === "принцеса" || protagonist === "чарівниця") {
