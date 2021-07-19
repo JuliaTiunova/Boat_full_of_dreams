@@ -20,6 +20,9 @@ import {
 import { river, tree, oldManRiver } from "../../constants/constants";
 import BoatRiverSpeach from "../../functions/BoatRiverSpeach";
 import HelperAcrossRiver from "../../functions/HelperAcrossRiver";
+import HelperTree from "../../functions/HelperTree";
+import InPlaceDragon from "../../functions/InPlaceDragon";
+import InPlaceHeroic from "../../functions/InPlaceHeroic";
 
 import InPlacePart2 from "../../functions/InPlacePart2";
 import TakeHelper from "../../functions/TakeHelper";
@@ -130,23 +133,10 @@ const Story = (props) => {
       }
 
       if (mood === "героїчна") {
-        part2 += `Він мав надзвичайну силу і прості люди боялися його, тож ${protagonist} ${name}, почувши, що один король хоче взяти його на службу, відправився в далеку подорож. Жив король `;
+        part2 += `Він мав надзвичайну силу і прості люди боялися його, тож ${protagonist} ${name}, почувши, що один король хоче взяти його на службу, відправився в далеку подорож. Жив король ${InPlaceHeroic(
+          place
+        )}`;
 
-        switch (place) {
-          case "чарівний ліс":
-            part2 += `в далекому чарівному лісі `;
-            break;
-          case "море/океан...":
-            part2 += `на дні глибокого океану `;
-            break;
-          case "гори":
-            part2 += `в печерах високих гір `;
-            break;
-          case "місто":
-            part2 += `в великому місті далекої країни `;
-            break;
-          default:
-        }
         part2 += `і щоб подорож його була легшою, ${name} взяв з собою ${TakeHelper(
           helper,
           protagonist
@@ -164,32 +154,11 @@ const Story = (props) => {
         }
         part3 += `повз, але раптом дерево заговорило:`;
         part3_1 += `- Ти напевно сильний та сміливий ${protagonist}, якщо ідеш цією дорогою. Благаю, допоможи мені позбутися цих ворон. `;
-        part3_2 += `${name}, не довго думаючи, `;
+        part3_2 += `${name}, не довго думаючи, ${HelperTree(
+          helper,
+          protagonist
+        )}`;
 
-        switch (helper) {
-          case "меч і щит":
-            part3_2 += `змахнув своїм мечем `;
-            break;
-          case "чарівна палочка":
-            part3_2 += `змахнув чарівною палочкою `;
-
-            break;
-          case "лук і стріли":
-            part3_2 += `пустив стрілу зі свого лука `;
-            break;
-          case "кінь":
-            part3_2 += `зійшов зі свого коня `;
-            if (protagonist === "лицар") {
-              part3_2 += `та як потрусив могутнє дерево з усієї сили `;
-            } else if (protagonist === "чарівник") {
-              part3_2 += `і почав чаклувати над деревом `;
-            }
-            break;
-          case "троянда":
-            part3_2 += `притулив до стовбура чарівну троянду `;
-            break;
-          default:
-        }
         part3_2 += `і всі ворони, як одна, полетіли в небо. `;
 
         // for part 4
@@ -230,7 +199,7 @@ const Story = (props) => {
       if (mood === "героїчна") {
         part2 += `Вона мала надзвичайну силу, тому прості люди, і навіть власні батьки її боялися.`;
 
-        part2_3 += `Та ось почула якось ${protagonist}, що живе ${InPlacePart2(
+        part2_3 += `Та ось почула якось ${protagonist}, що живе ${InPlaceHeroic(
           place
         )} `;
 
@@ -358,17 +327,10 @@ const Story = (props) => {
         part3 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
       }
       if (mood === "моторошна" || mood === "повчальна") {
-        part3_1 += `Летів ${name} три дні і три ночі коли побачив попереду `;
-
-        if (place === "гори") {
-          part3_1 += `височіє гора, якої ${protagonist} раніше не бачив. `;
-        } else if (place === "море/океан...") {
-          part3_1 += `високе дерево, що росте прямо з морських глибин. `;
-        } else if (place === "місто") {
-          part3_1 += `велике шумне місто, повне людей. `;
-        } else if (place === "чарівний ліс") {
-          part3_1 += `густий ліс, а посеред нього високий замок. `;
-        }
+        part3_1 += `Летів ${name} три дні і три ночі коли побачив попереду ${InPlaceDragon(
+          place,
+          protagonist
+        )}`;
         part3_1 += `Підлетів ближче і виявилось, `;
       }
     }
