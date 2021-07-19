@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 const LinkBack = (props) => {
   return (
-    <Button className={cn(styles.link, props.className)} text="Повернутись" />
+    <Button className={cn(styles.link, props.className)} text="на головну" />
   );
 };
 

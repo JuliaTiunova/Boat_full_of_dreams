@@ -1,4 +1,4 @@
-import {
+import TakeHelper, {
   beginning,
   beginningPlus,
   expoHero,
@@ -15,6 +15,8 @@ import {
   placesForest,
   placesPlusMountain,
   protagonistsAll,
+  river,
+  tree,
   waterPlace,
 } from "../../arrays/arrays";
 
@@ -56,6 +58,7 @@ const Story = (props) => {
   let part3_1 = "";
   let part3_2 = "";
   let part4 = "";
+  let part4_1 = "";
 
   if (mood === "") {
     mood = findRandomElement(moodOf);
@@ -125,31 +128,10 @@ const Story = (props) => {
           default:
         }
 
-        part2 += `є чудодійне джерело, вода якого дарує вічну молодість. І задумав злий король жити вічно. Тож відправився ${protagonist} у далеку подорож і взяв він з собою тільки `;
-
-        switch (helper) {
-          case "меч і щит":
-            part2 += `свої вірні меч і щит.`;
-            break;
-          case "чарівна палочка":
-            part2 += `свою вірну чарівну палочку`;
-            if (protagonist === "лицар") {
-              part2 += `: подарунок від придворного мага.`;
-            } else {
-              part2 += `.`;
-            }
-            break;
-          case "лук і стріли":
-            part2 += `свої вірні лук і стріли.`;
-            break;
-          case "кінь":
-            part2 += `свого вірного коня.`;
-            break;
-          case "троянда":
-            part2 += `чарівну троянду.`;
-            break;
-          default:
-        }
+        part2 += `є чудодійне джерело, вода якого дарує вічну молодість. І задумав злий король жити вічно. Тож відправився ${protagonist} у далеку подорож і взяв він з собою тільки ${TakeHelper(
+          helper,
+          protagonist
+        )}`;
       }
 
       if (mood === "героїчна") {
@@ -170,35 +152,16 @@ const Story = (props) => {
             break;
           default:
         }
-        part2 += `і щоб подорож його була легшою, ${name} взяв з собою `;
-        switch (helper) {
-          case "меч і щит":
-            part2 += `свої вірні меч і щит.`;
-            break;
-          case "чарівна палочка":
-            part2 += `свою вірну чарівну палочку`;
-            if (protagonist === "лицар") {
-              part2 += `: подарунок від придворного мага.`;
-            } else {
-              part2 += `.`;
-            }
-            break;
-          case "лук і стріли":
-            part2 += `свої вірні лук і стріли.`;
-            break;
-          case "кінь":
-            part2 += `свого вірного коня.`;
-            break;
-          case "троянда":
-            part2 += `чарівну троянду.`;
-            break;
-          default:
-        }
+        part2 += `і щоб подорож його була легшою, ${name} взяв з собою ${TakeHelper(
+          helper,
+          protagonist
+        )}`;
       }
+
       // for part3
 
       if (mood === "повчальна" || mood === "моторошна" || mood === "героїчна") {
-        part3 += `Першого ж дня зустрів ${name} на своєму шляху велетенське дерево, яке обсіли ворони. Він хотів було `;
+        part3 += `Першого ж дня зустрів ${name} на своєму шляху ${tree}. Він хотів було `;
         if (helper !== "кінь") {
           part3 += `пройти `;
         } else {
@@ -235,7 +198,7 @@ const Story = (props) => {
         part3_2 += `і всі ворони, як одна, полетіли в небо. `;
         // for part 4
 
-        part4 += `Наступного дня ${protagonist} `;
+        part4 += `Наступного дня ${protagonist} побачив перед собою ${river}. `;
       }
     }
 
@@ -254,24 +217,10 @@ const Story = (props) => {
           part2 += `в далекому невідомому місті. `;
         }
 
-        part2 += `Тож зібралась ${protagonist} у далеку подорож і взяла з собою тільки `;
-
-        if (helper === "меч і щит") {
-          part2 += `свої вірні меч і щит.`;
-        } else if (helper === "чарівна палочка") {
-          part2 += `свою вірну чарівну палочку`;
-          if (protagonist === "принцеса") {
-            part2 += `, подарунок від придворного мага.`;
-          } else {
-            part2 += `.`;
-          }
-        } else if (helper === "лук і стріли") {
-          part2 += `свої вірні лук і стріли.`;
-        } else if (helper === "кінь") {
-          part2 += `свого вірного коня.`;
-        } else if (helper === "троянда") {
-          part2 += `чарівну троянду.`;
-        }
+        part2 += `Тож зібралась ${protagonist} у далеку подорож і взяла з собою тільки ${TakeHelper(
+          helper,
+          protagonist
+        )}`;
       }
 
       if (mood === "героїчна") {
@@ -289,24 +238,10 @@ const Story = (props) => {
           part2_3 += `в далекому невідомому місті `;
         }
 
-        part2_3 += `одна королева, яка нічого не боїться. ${name} взяла`;
-
-        if (helper === "меч і щит") {
-          part2 += `свої вірні меч і щит.`;
-        } else if (helper === "чарівна палочка") {
-          part2 += `свою вірну чарівну палочку`;
-          if (protagonist === "принцеса") {
-            part2 += `, подарунок від придворного мага.`;
-          } else {
-            part2 += `.`;
-          }
-        } else if (helper === "лук і стріли") {
-          part2 += `свої вірні лук і стріли.`;
-        } else if (helper === "кінь") {
-          part2 += `свого вірного коня.`;
-        } else if (helper === "троянда") {
-          part2 += `чарівну троянду.`;
-        }
+        part2_3 += `одна королева, яка нічого не боїться. ${name} взяла ${TakeHelper(
+          helper,
+          protagonist
+        )}`;
 
         part2_3 += `і вирушила на пошуки королеви, шукати поради. `;
       }
@@ -317,7 +252,7 @@ const Story = (props) => {
         } else {
           part3 += `Йшла `;
         }
-        part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху широку бурхливу річку, яку ні переплисти, ні в брід не пройти. `;
+        part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху ${river}. `;
       }
     }
   }
@@ -346,7 +281,7 @@ const Story = (props) => {
     }
 
     if (protagonist === "ельф") {
-      if (mood === "моторошна" || mood === "повчальна") {
+      if (mood === "моторошна" || mood === "повчальна" || mood === "героїчна") {
         if (place === "гори") {
           part2 += `${findRandomElement(placesPlusMountain)}. `;
         }
@@ -432,12 +367,13 @@ const Story = (props) => {
         if (place === "гори") {
           part3_1 += `височіє гора, якої ${protagonist} раніше не бачив. `;
         } else if (place === "море/океан...") {
-          part3_1 += `висоен дерево, що росте прямо з морських глибин. `;
+          part3_1 += `високе дерево, що росте прямо з морських глибин. `;
         } else if (place === "місто") {
           part3_1 += `велиле шумне місто, повне людей. `;
         } else if (place === "чарівний ліс") {
           part3_1 += `густий ліс, а посеред нього високий замок. `;
         }
+        part3_1 += `Підлетів ближче і виявилось, `;
       }
     }
   }
@@ -451,7 +387,7 @@ const Story = (props) => {
         {beginning[beginningIndex]} {beginningPlusStory} {beginningEndChain}{" "}
         {part2} <br /> {part2_3} <br /> {part3} <br /> {part3_1} <br />{" "}
         {part3_2} <br />
-        {part4}
+        {part4} <br /> {part4_1}
       </p>
     </div>
   );

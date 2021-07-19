@@ -4,11 +4,6 @@
   background: url(./BG_mist.jpeg) center center no-repeat;
   background-size: cover;
 }
-@media (max-width: 767.98px) {
-  .wrapper {
-    padding: 60px 0;
-  }
-}
 
 .form {
   display: flex;
