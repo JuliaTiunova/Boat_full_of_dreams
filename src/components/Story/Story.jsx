@@ -15,10 +15,11 @@ import {
   placesForest,
   placesPlusMountain,
   protagonistsAll,
-  river,
-  tree,
   waterPlace,
 } from "../../arrays/arrays";
+import { river, tree, oldManRiver } from "../../constants/constants";
+import BoatRiverSpeach from "../../functions/BoatRiverSpeach";
+
 import InPlacePart2 from "../../functions/InPlacePart2";
 import TakeHelper from "../../functions/TakeHelper";
 
@@ -61,16 +62,21 @@ const Story = (props) => {
   let part3_2 = "";
   let part4 = "";
   let part4_1 = "";
+  let part4_2 = "";
+  let part4_3 = "";
 
   if (mood === "") {
     mood = findRandomElement(moodOf);
   }
+
   if (place === "") {
     place = findRandomElement(placesAll);
   }
+
   if (protagonist === "") {
     protagonist = findRandomElement(protagonistsAll);
   }
+
   if (helper === "") {
     helper = findRandomElement(helpers);
   }
@@ -109,6 +115,7 @@ const Story = (props) => {
   }
 
   // for part2
+
   if (!protagonists) {
     if (protagonist === "лицар" || protagonist === "чарівник") {
       if (mood === "повчальна" || mood === "моторошна") {
@@ -183,9 +190,14 @@ const Story = (props) => {
           default:
         }
         part3_2 += `і всі ворони, як одна, полетіли в небо. `;
+
         // for part 4
 
-        part4 += `Наступного дня ${protagonist} побачив перед собою ${river}. `;
+        part4 += `Наступного дня ${protagonist} побачив перед собою ${river}. ${oldManRiver}. `;
+
+        part4_1 += `${name} спробував розбудити діда, але той навіть не ворухнувся, тоді ${name} спробував забрати весла, але старий тримав їх надто міцно. Сів ${protagonist} на берег та й задумався, раптом чує - човен до нього промовляє: `;
+        part4_2 += `${BoatRiverSpeach(protagonist)}`;
+        part4_3 += ``;
       }
     }
 
@@ -196,7 +208,7 @@ const Story = (props) => {
            place
          )}. `;
 
-        part2 += `Тож зібралась ${protagonist} у далеку подорож і взяла з собою тільки ${TakeHelper(
+        part2 += `Тож зібралась ${protagonist} у далеку подорож і взяла з собою лише ${TakeHelper(
           helper,
           protagonist
         )}`;
@@ -223,7 +235,7 @@ const Story = (props) => {
         } else {
           part3 += `Йшла `;
         }
-        part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху ${river}. `;
+        part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху ${river}. ${oldManRiver}. `;
       }
     }
   }
@@ -340,7 +352,7 @@ const Story = (props) => {
         } else if (place === "море/океан...") {
           part3_1 += `високе дерево, що росте прямо з морських глибин. `;
         } else if (place === "місто") {
-          part3_1 += `велиле шумне місто, повне людей. `;
+          part3_1 += `велике шумне місто, повне людей. `;
         } else if (place === "чарівний ліс") {
           part3_1 += `густий ліс, а посеред нього високий замок. `;
         }
@@ -358,7 +370,8 @@ const Story = (props) => {
         {beginning[beginningIndex]} {beginningPlusStory} {beginningEndChain}{" "}
         {part2} <br /> {part2_3} <br /> {part3} <br /> {part3_1} <br />{" "}
         {part3_2} <br />
-        {part4} <br /> {part4_1}
+        <br /> {part4} <br /> {part4_1} <br />
+        {part4_2} <br /> {part4_3}
       </p>
     </div>
   );
