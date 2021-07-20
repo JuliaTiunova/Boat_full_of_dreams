@@ -44,6 +44,8 @@
 
 body {
   font-family: "Jost", sans-serif;
+}
 
+html {
   scroll-behavior: smooth;
 }

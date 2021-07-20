@@ -9,9 +9,11 @@
   border-left: 2px solid #ffffff00;
   transition: all 0.1s;
   position: relative;
+  padding: 5px;
 }
 .button {
   font-family: "Comfortaa", sans-serif;
+  text-decoration: none;
   font-size: 18px;
   line-height: 28px;
   background: 0;

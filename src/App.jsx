@@ -20,7 +20,7 @@ import {
 } from "react-router-dom";
 import BurgerButton from "./components/BurgerButton/BurgerButton";
 import MenuBurger from "./components/MenuBurger/MenuBurger";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const history = useHistory();

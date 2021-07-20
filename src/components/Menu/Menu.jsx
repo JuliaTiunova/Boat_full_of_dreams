@@ -1,40 +1,25 @@
 import styles from "./Menu.module.css";
 import cn from "classnames";
+import React from "react";
 
 const Menu = (props) => {
-  const about = document.getElementById("about");
-  const instruction = document.getElementById("instruction");
-  const contacts = document.getElementById("contact");
-
-  function handleScroll() {
-    about.scrollIntoView({ behavior: "smooth" });
-  }
-
-  function handleScrollInstruction() {
-    instruction.scrollIntoView({ behavior: "smooth" });
-  }
-
-  function handleScrollContacts() {
-    contacts.scrollIntoView({ behavior: "smooth" });
-  }
-
   return (
     <nav className={cn(styles.menu, props.className)}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <button className={styles.button} onClick={handleScroll}>
+          <a href="#about" className={styles.button}>
             Про цей сайт
-          </button>
+          </a>
         </li>
         <li className={styles.item}>
-          <button className={styles.button} onClick={handleScrollInstruction}>
+          <a href="#instruction" className={styles.button}>
             Інструкції
-          </button>
+          </a>
         </li>
         <li className={styles.item}>
-          <button className={styles.button} onClick={handleScrollContacts}>
+          <a href="#contact" className={styles.button}>
             Написати нам
-          </button>
+          </a>
         </li>
       </ul>
     </nav>

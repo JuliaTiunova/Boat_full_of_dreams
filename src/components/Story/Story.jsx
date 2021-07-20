@@ -19,30 +19,17 @@ import {
 } from "../../arrays/arrays";
 import { river, tree, oldManRiver } from "../../constants/constants";
 import BoatRiverSpeach from "../../functions/BoatRiverSpeach";
+import findRandomElement from "../../functions/findRandomElement";
+import findRandomIndex from "../../functions/findRandomIndex";
 import HelperAcrossRiver from "../../functions/HelperAcrossRiver";
 import HelperTree from "../../functions/HelperTree";
 import InPlaceDragon from "../../functions/InPlaceDragon";
 import InPlaceHeroic from "../../functions/InPlaceHeroic";
-
 import InPlacePart2 from "../../functions/InPlacePart2";
+import ManInWhiteSpeach from "../../functions/ManInWhiteSpeach";
 import TakeHelper from "../../functions/TakeHelper";
 
 import styles from "./Story.module.css";
-
-const findRandomIndex = (length) => {
-  let index;
-  do {
-    index = Math.trunc(Math.random() * 10);
-  } while (index < 0 || index >= length);
-
-  return index;
-};
-
-const findRandomElement = (arr) => {
-  const index = findRandomIndex(arr.length);
-  const element = arr[index];
-  return element;
-};
 
 const Story = (props) => {
   const beginningIndex = findRandomIndex(beginning.length);
@@ -219,6 +206,11 @@ const Story = (props) => {
         }
         part3 += `${protagonist} три дні і три ночі, коли побачила на своєму шляху ${river}. ${oldManRiver}. `;
       }
+      if (mood === "повчальна" || mood === "моторошна") {
+      }
+
+      if (mood === "героїчна") {
+      }
     }
   }
 
@@ -324,14 +316,30 @@ const Story = (props) => {
 
         part2 += `і більше за все він любив золото та коштовне каміння. `;
 
-        part3 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
+        part2_3 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
       }
       if (mood === "моторошна" || mood === "повчальна") {
-        part3_1 += `Летів ${name} три дні і три ночі коли побачив попереду ${InPlaceDragon(
+        if (place === "море/океан...") {
+          part3 += `Плив `;
+        } else {
+          part3 += `Летів `;
+        }
+
+        part3 += `${name} три дні і три ночі коли побачив попереду ${InPlaceDragon(
           place,
           protagonist
-        )}`;
-        part3_1 += `Підлетів ближче і виявилось, `;
+        )}. Побачив чоловік, що `;
+
+        if (place === "море/океан...") {
+          part3 += `пливе `;
+        } else {
+          part3 += `летить `;
+        }
+
+        part3 += `до нього великий дракон, звівся на ноги і таке промовив: `;
+
+        part3_1 += `${ManInWhiteSpeach(protagonist, place)}`;
+        part3_2 += ``;
       }
     }
   }
