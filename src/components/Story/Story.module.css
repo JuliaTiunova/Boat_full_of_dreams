@@ -8,7 +8,7 @@
 
 @media (max-width: 767.98px) {
   .wrapper {
-    padding: 16% 5%;
+    padding: 16% 5% 16% 10%;
   }
 }
 
@@ -73,11 +73,6 @@
   border-radius: 0 10px 10px 0;
 }
 
-@media (max-width: 576.98px) {
-  .editWrapper {
-    width: 23vw;
-  }
-}
 .edit:hover {
   cursor: pointer;
 }
