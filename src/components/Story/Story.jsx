@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   beginning,
   beginningPlus,
@@ -8,15 +7,14 @@ import {
   moodOf,
   mountainPlaceDragon,
   namesDragon,
-  namesElf,
+  // namesElf,
   namesKnightWizard,
   namesMermaid,
   namesPrincessWitch,
   placesAll,
   placesForest,
-  placesPlusMountain,
+  // placesPlusMountain,
   protagonistsAll,
-  waterPlace,
 } from "../../arrays/arrays";
 import { river, tree, oldManRiver } from "../../constants/constants";
 import BoatRiverSpeach from "../../functions/BoatRiverSpeach";
@@ -29,6 +27,7 @@ import InPlaceHeroic from "../../functions/InPlaceHeroic";
 import InPlacePart2 from "../../functions/InPlacePart2";
 import ManInBoatSpeach from "../../functions/ManInBoatSpeach";
 import ManInWhiteSpeach from "../../functions/ManInWhiteSpeach";
+import MermaidPart2 from "../../functions/MermaidPart2";
 import TakeHelper from "../../functions/TakeHelper";
 
 import styles from "./Story.module.css";
@@ -40,7 +39,6 @@ const Story = (props) => {
   let place = props.place;
   let name = props.name;
   let mood = props.mood;
-  // let power = props.power;
   let helper = props.helper;
 
   let beginningPlusStory = "";
@@ -48,8 +46,6 @@ const Story = (props) => {
   let beginningEndChain = "";
   let part2 = "";
   let part2_1 = "";
-  let part2_2 = "";
-  let part2_3 = "";
   let part3 = "";
   let part3_1 = "";
   let part3_2 = "";
@@ -173,6 +169,8 @@ const Story = (props) => {
     }
 
     if (protagonist === "принцеса" || protagonist === "чарівниця") {
+      // for part 2
+
       if (mood === "повчальна" || mood === "моторошна") {
         part2 += `Вона мала яскраве руде волосся, що, нажаль, було неприпустимим для її народу.
          Та одного разу її батьки почули про чарівне джерело, яке може виконати будь-яке бажання. Але знайти це джерело можна було тільки ${InPlacePart2(
@@ -188,17 +186,19 @@ const Story = (props) => {
       if (mood === "героїчна") {
         part2 += `Вона мала надзвичайну силу, тому прості люди, і навіть власні батьки її боялися.`;
 
-        part2_3 += `Та ось почула якось ${protagonist}, що живе ${InPlaceHeroic(
+        part2_1 += `Та ось почула якось ${protagonist}, що живе ${InPlaceHeroic(
           place
         )} `;
 
-        part2_3 += `одна королева, яка нічого не боїться. ${name} взяла ${TakeHelper(
+        part2_1 += `одна королева, яка нічого не боїться. ${name} взяла ${TakeHelper(
           helper,
           protagonist
         )}`;
 
-        part2_3 += `і вирушила на пошуки королеви, шукати поради. `;
+        part2_1 += `і вирушила на пошуки королеви, шукати поради. `;
       }
+
+      // for part 3
 
       if (mood === "повчальна" || mood === "моторошна" || mood === "героїчна") {
         if (helper === !"кінь") {
@@ -219,7 +219,7 @@ const Story = (props) => {
       part3 += `${name} хотіла взяти з його рук весла, аж раптом він розплющив очі і каже: `;
 
       part3_1 += ManInBoatSpeach(protagonist, mood);
-      part3_2 += ``;
+      // part3_2 += ``;
     }
   }
 
@@ -262,39 +262,13 @@ const Story = (props) => {
 
     if (protagonist === "русалка") {
       if (mood === "моторошна" || mood === "повчальна" || mood === "героїчна") {
-        if (place === "чарівний ліс") {
-          part2 += `в озері захованому в хащах густого-густого лісу, хоча не раз їх бачили на болотах. `;
-        } else if (place === "море/океан...") {
-          part2 += `на дні глибокого моря. Там вони будували високі коралові палаци `;
-          if (mood === "моторошна") {
-            part2 += `в яких ніхто ніколи не жив. Вежі здіймалися з глибин, немов покинуті скульптури, і стояли собі серед води порожні і самотні.`;
-          }
-        } else if (place === "гори") {
-          part2_1 = findRandomElement(waterPlace);
-          if (waterPlace === "глибокого озера") {
-            part2_2 = "озерн";
-          } else {
-            part2_2 = "річков";
-          }
-          part2 += `на дні ${part2_1} і їм було дуже-дуже холодно. Коли наставала зима, їхня луска тверділа, мов лід і русалки опускалися на ${part2_2}е дно, невзмозі поворухнути хвостами. Там вони лежали всю зиму, мов кришталеві скульптури`;
+        part2 += MermaidPart2(place, mood);
 
-          if (mood === "моторошна") {
-            part2 += ` i ніхто, крім потопельників, не міг побачити їх`;
-          }
-
-          part2 += `. А наприкінці весни, коли лід танув, русалки підіймалися на поверхню, бентежили незворушні води і співали. З їхніх вуст зривався холодний подих і над ${part2_2}им плесом стелився туман. `;
-
-          // if (power === "вміння літати") {
-          //   part2 += ` і вона все життя мріяла літати.`;
-          // }
-        } else if (place === "місто") {
-          part2 += `колись в морі, в своїх коралових палацах, де золота луска їхня виблискувала в фосфорному світлі. Та врешті їх спіймали в тенета жорстокі люди, бо ж русалки були чарівні і вміли виконувати бажання. Тепер вони жили у великих містах, заточені в  акваріуми і щоб не померти з голоду виконували забаганки багатих людей.`;
-        }
-        part2_3 += `Одну з тих русалок звали ${name} і найбільше за все вона мріяла `;
+        part2_1 += `Одну з тих русалок звали ${name} і найбільше за все вона мріяла `;
         if (place !== "місто") {
-          part2_3 += `побачити світ. `;
+          part2_1 += `побачити світ. `;
         } else {
-          part2_3 += `про порятунок. `;
+          part2_1 += `про порятунок. `;
         }
       }
     }
@@ -325,7 +299,7 @@ const Story = (props) => {
 
         part2 += `і більше за все він любив золото та коштовне каміння. `;
 
-        part2_3 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
+        part2_1 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
       }
       if (mood === "моторошна" || mood === "повчальна") {
         if (place === "море/океан...") {
@@ -420,7 +394,7 @@ const Story = (props) => {
         </div>
         <p className={styles.text}>
           {beginning[beginningIndex]} {beginningPlusStory} {beginningEndChain}{" "}
-          {part2} <br /> {part2_3} <br /> {part3} <br /> {part3_1} <br />{" "}
+          {part2} <br /> {part2_1} <br /> {part3} <br /> {part3_1} <br />{" "}
           {part3_2} <br />
           <br /> {part4} <br /> {part4_1} <br />
           {part4_2} <br /> {part4_3}
