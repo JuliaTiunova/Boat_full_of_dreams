@@ -25,12 +25,12 @@ import React, { useState } from "react";
 function App() {
   const history = useHistory();
 
+  const [story, setStory] = useState(null);
+  const [open, setOpen] = useState(null);
+
   const Greetings = () => {
     return <h1 className={styles.title}>Вітаю, сновидцю!</h1>;
   };
-
-  const [story, setStory] = useState(null);
-  const [open, setOpen] = useState(null);
 
   const handleBurger = (openMenu) => {
     if (!open) {

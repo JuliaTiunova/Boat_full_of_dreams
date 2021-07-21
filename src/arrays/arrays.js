@@ -10,8 +10,6 @@ export const protagonistsAll = [
 
 export const placesAll = ["чарівний ліс", "море/океан...", "гори", "місто"];
 
-// export const creatures = ["дракони", "ельфи", "русалки"];
-
 export const helpers = [
   "меч і щит",
   "чарівна палочка",
@@ -47,10 +45,10 @@ export const namesDragon = [
   "Дрехкі", // "Дракон" ісландською
 ];
 
-export const namesElf = [
-  "Aульвур", // "Ельф" ісландською
-  "Ілівер", // "" ельфійською
-];
+// export const namesElf = [
+//   "Aульвур", // "Ельф" ісландською
+//   "Ілівер", // "" ельфійською
+// ];
 
 export const namesMermaid = [
   "Мор-Ворвін", // валійською
