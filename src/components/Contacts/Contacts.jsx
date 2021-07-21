@@ -7,7 +7,13 @@ const Contacts = (props) => {
     <div className={styles.contacts}>
       <form className={styles.form} action="#">
         <label htmlFor="name">Ім'я</label>
-        <input className={styles.input} type="text" id="name" minLength="3" />
+        <input
+          className={styles.input}
+          type="text"
+          id="name"
+          minLength="3"
+          required
+        />
         <label htmlFor="email">Електронна адреса</label>
         <input
           className={styles.input}
@@ -24,6 +30,7 @@ const Contacts = (props) => {
           cols="20"
           rows="4"
           minLength="10"
+          required
         ></textarea>
         <Button className={styles.button} text="Надіслати" type="submit" />
       </form>
