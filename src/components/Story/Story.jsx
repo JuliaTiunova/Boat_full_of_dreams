@@ -28,6 +28,7 @@ import InPlacePart2 from "../../functions/InPlacePart2";
 import ManInBoatSpeach from "../../functions/ManInBoatSpeach";
 import ManInWhiteSpeach from "../../functions/ManInWhiteSpeach";
 import MermaidPart2 from "../../functions/MermaidPart2";
+import MeramidPart3 from "../../functions/MermaidPart3";
 import TakeHelper from "../../functions/TakeHelper";
 
 import styles from "./Story.module.css";
@@ -270,6 +271,9 @@ const Story = (props) => {
         } else {
           part2_1 += `про порятунок. `;
         }
+        // for part 3
+
+        part3 += MeramidPart3(place, mood, name);
       }
     }
 
@@ -300,8 +304,9 @@ const Story = (props) => {
         part2 += `і більше за все він любив золото та коштовне каміння. `;
 
         part2_1 += `Тож відправився ${protagonist} ${name} одного дня на пошуки нових скарбів. `;
-      }
-      if (mood === "моторошна" || mood === "повчальна") {
+
+        // for part 3
+
         if (place === "море/океан...") {
           part3 += `Плив `;
         } else {
