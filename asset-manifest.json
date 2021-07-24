@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Boat_full_of_tales/static/css/main.c0d60b35.chunk.css",
+    "main.js": "/Boat_full_of_tales/static/js/main.932155aa.chunk.js",
+    "main.js.map": "/Boat_full_of_tales/static/js/main.932155aa.chunk.js.map",
+    "runtime-main.js": "/Boat_full_of_tales/static/js/runtime-main.8a31ae9e.js",
+    "runtime-main.js.map": "/Boat_full_of_tales/static/js/runtime-main.8a31ae9e.js.map",
+    "static/css/2.d5885e1e.chunk.css": "/Boat_full_of_tales/static/css/2.d5885e1e.chunk.css",
+    "static/js/2.903a00b9.chunk.js": "/Boat_full_of_tales/static/js/2.903a00b9.chunk.js",
+    "static/js/2.903a00b9.chunk.js.map": "/Boat_full_of_tales/static/js/2.903a00b9.chunk.js.map",
+    "index.html": "/Boat_full_of_tales/index.html",
+    "static/css/2.d5885e1e.chunk.css.map": "/Boat_full_of_tales/static/css/2.d5885e1e.chunk.css.map",
+    "static/css/main.c0d60b35.chunk.css.map": "/Boat_full_of_tales/static/css/main.c0d60b35.chunk.css.map",
+    "static/js/2.903a00b9.chunk.js.LICENSE.txt": "/Boat_full_of_tales/static/js/2.903a00b9.chunk.js.LICENSE.txt",
+    "static/media/App.module.css": "/Boat_full_of_tales/static/media/Logo.6013b8bb.png",
+    "static/media/Instruction.module.css": "/Boat_full_of_tales/static/media/wizard.44606245.svg",
+    "static/media/Form.module.css": "/Boat_full_of_tales/static/media/BG_mist.aa82f0ec.jpeg",
+    "static/media/Story.module.css": "/Boat_full_of_tales/static/media/BGstars.95a5cc8e.jpeg",
+    "static/media/About.module.css": "/Boat_full_of_tales/static/media/books_2.f5177011.jpeg",
+    "static/media/index.css": "/Boat_full_of_tales/static/media/icomoon.b81c3b33.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8a31ae9e.js",
+    "static/css/2.d5885e1e.chunk.css",
+    "static/js/2.903a00b9.chunk.js",
+    "static/css/main.c0d60b35.chunk.css",
+    "static/js/main.932155aa.chunk.js"
+  ]
+}
