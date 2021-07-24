@@ -1,0 +1,55 @@
+.burgerButton {
+  background: 0;
+  border: 0;
+  outline: 0;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.burgerButton:hover {
+  cursor: pointer;
+}
+
+.burgerButton span {
+  height: 2px;
+  width: 100%;
+  display: block;
+  border-radius: 2px;
+  background: #fff;
+  align-self: center;
+}
+
+.menuOpen span {
+  transform: rotate(45deg);
+}
+
+.menuOpen span::after {
+  transform: rotate(45deg);
+}
+
+.menuOpen span::before {
+  transform: rotate(45deg);
+}
+
+span::after,
+span::before {
+  content: "";
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: #fff;
+  position: absolute;
+}
+
+span::after {
+  top: 4px;
+  left: 0;
+}
+span::before {
+  bottom: 4px;
+  left: 0;
+}
