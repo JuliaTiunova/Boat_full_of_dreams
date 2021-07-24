@@ -61,12 +61,14 @@ function App() {
               <Subtitle className="animate__animated animate__pulse animate__slower	animate__infinite" />
             </Link>{" "}
           </header>
-          <section id="about">
-            <About />
-          </section>
-          <section id="instruction">
-            <Instruction />
-          </section>
+          <main>
+            <section id="about">
+              <About />
+            </section>
+            <section id="instruction">
+              <Instruction />
+            </section>
+          </main>
           <footer className={styles.footer} id="contact">
             <Title2 className={styles.titleSmall} text="Напиши нам" />
             <Contacts />

@@ -34,10 +34,10 @@ const Contacts = (props) => {
         ></textarea>
         <Button className={styles.button} text="Надіслати" type="submit" />
       </form>
-      <div className={styles.social}>
+      <nav className={styles.social}>
         <p>Ходи за нами</p>
         <Social />
-      </div>
+      </nav>
     </div>
   );
 };
